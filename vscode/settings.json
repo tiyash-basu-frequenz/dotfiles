@@ -1,0 +1,56 @@
+{
+    "telemetry.telemetryLevel": "off",
+    "gitlens.telemetry.enabled": false,
+    "extensions.ignoreRecommendations": true,
+    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+    "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": false,
+    "editor.fontSize": 13 ,
+    "editor.rulers": [
+        80,
+        100,
+        120
+    ],
+    "editor.accessibilitySupport": "off",
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "editor.inlayHints.padding": true,
+    "editor.copyWithSyntaxHighlighting": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.autoSave": "afterDelay",
+    "rust-analyzer.imports.granularity.group": "module",
+    "rust-analyzer.imports.granularity.enforce": true,
+    "rust-analyzer.imports.merge.glob": false,
+    "rust-analyzer.imports.prefix": "crate",
+    "rust-analyzer.diagnostics.enable": false,
+    "rust-analyzer.inlayHints.typeHints.enable": false,
+    "rust-analyzer.inlayHints.parameterHints.enable": false,
+    "rust-analyzer.inlayHints.bindingModeHints.enable": true,
+    "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "always",
+    "rust-analyzer.inlayHints.expressionAdjustmentHints.enable": "always",
+    "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "always",
+    "rust-analyzer.cargo.extraEnv": {
+        "CARGO_TARGET_DIR": "target/check"
+    },
+    "rust-analyzer.check.extraArgs": [
+        "--target-dir", "target/check"
+    ],
+    "C_Cpp.clang_format_fallbackStyle": "{     BasedOnStyle: LLVM,     UseTab: Never,     IndentWidth: 4,     TabWidth: 4,     BreakBeforeBraces: Attach,     AllowShortIfStatementsOnASingleLine: false,     IndentCaseLabels: false,     ColumnLimit: 0,     AccessModifierOffset: -4,     NamespaceIndentation: All,     FixNamespaceComments: false }",
+    "editor.inlineSuggest.enabled": true,
+    "cSpell.userWords": [
+        "frequenz",
+        "Microgrid",
+        "protobuf",
+        "socketcan"
+    ],
+    "git.openRepositoryInParentFolders": "always",
+    "editor.minimap.enabled": false,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
+}

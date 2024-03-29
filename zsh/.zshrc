@@ -1,0 +1,111 @@
+export   HISTCONTROL=ignoredups
+setopt   appendhistory
+setopt   HIST_IGNORE_ALL_DUPS
+unsetopt HIST_IGNORE_DUPS
+
+TERM=screen-256color
+GPG_TTY=$(tty)
+export GPG_TTY
+
+# Fallback prompt
+# PROMPT="%F{045}%n@%m%B:%b %F{156}%1~ %F{050}%B%#%b %F{046}"
+
+PATH=/Users/tbasu/go/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+# PATH=/Users/tbasu/Dev/dev_containers/rust/scripts:$PATH
+# PATH=/Users/tbasu/Dev/dev_containers/python/scripts:$PATH
+# PATH=/Users/tbasu/Dev/dev_containers/go/scripts:$PATH
+
+# brew install zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# history search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# option + left/right
+bindkey "^[[1;3D"	backward-word
+bindkey	"^[[1;3C"	forward-word
+
+# cmd + left/right
+bindkey "^[[1;9D"	beginning-of-line
+bindkey "^[[1;9C"	end-of-line
+
+autoload -Uz compinit
+compinit
+
+eval "$(starship init zsh)"
+
+neofetch || test
+
+alias vim="nvim"
+alias brew_update="brew update && brew upgrade; brew autoremove; brew cleanup -s"
+alias ssh="TERM=xterm-256color ssh"
+alias ls="exa -g --git"
+alias ll="exa -aghl --git"
+alias lsusb="ioreg -p IOUSB"
+
+alias git_gc="git gc --aggressive --prune"
+alias gru="git remote update --prune"
+alias grp="git remote prune"
+alias gsfc="git submodule foreach git checkout . && git submodule foreach git submodule foreach git checkout ."
+alias gsu="git submodule update --init --recursive"
+
+function validate_args_eq() {
+    expected_num=$1
+    actual_num=$2
+    usage_str=$3
+
+    if [[ ${actual_num} -ne ${expected_num} ]]; then
+        echo error: expected ${expected_num} arguments, got ${actual_num} arguments
+        echo usage: ${usage_str}
+	return 1
+    fi
+
+    return 0
+}
+
+function validate_args_gt() {
+    min_num=$1
+    actual_num=$2
+    usage_str=$3
+
+    if [[ ${actual_num} -lt ${min_num} ]]; then
+        echo error: expected at least ${min_num} arguments, got ${actual_num} arguments
+        echo usage: ${usage_str}
+	return 1
+    fi
+
+    return 0
+}
+
+function git_recreate() {
+    validate_args_eq 1 $# "git_recreate [branch]"
+    if [[ $? == 1 ]]; then
+        return 1
+    fi
+
+    branch_name=$1
+
+    git checkout -b temp
+    git branch -D ${branch_name}
+    git checkout -b ${branch_name}
+    git branch -D temp
+}
+
+function git_refresh() {
+    validate_args_eq 2 $# "git_refresh [remote] [branch]"
+    if [[ $? == 1 ]]; then
+        return 1
+    fi
+
+    remote_name=$1
+    branch_name=$2
+
+    git checkout -b temp && \
+    git branch -D ${branch_name} && \
+    git checkout --track ${remote_name}/${branch_name} && \
+    git branch -D temp
+}
