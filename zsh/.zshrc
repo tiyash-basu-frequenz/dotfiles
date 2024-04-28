@@ -8,17 +8,15 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 # Fallback prompt
-# PROMPT="%F{045}%n@%m%B:%b %F{156}%1~ %F{050}%B%#%b %F{046}"
+PROMPT="%F{045}%n@%m%B:%b %F{156}%1~ %F{050}%B%#%b %F{046}"
 
-PATH=/Users/tbasu/go/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
-# PATH=/Users/tbasu/Dev/dev_containers/rust/scripts:$PATH
-# PATH=/Users/tbasu/Dev/dev_containers/python/scripts:$PATH
-# PATH=/Users/tbasu/Dev/dev_containers/go/scripts:$PATH
+# Add homebrew to PATH
+PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 
-# brew install zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+_zsh_plugins_dir="/opt/homebrew/share"
+source ${_zsh_plugins_dir}/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${_zsh_plugins_dir}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${_zsh_plugins_dir}/zsh-history-substring-search/zsh-history-substring-search.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # history search
@@ -38,13 +36,13 @@ compinit
 
 eval "$(starship init zsh)"
 
-neofetch || test
+neofetch
 
 alias vim="nvim"
-alias brew_update="brew update && brew upgrade; brew autoremove; brew cleanup -s"
 alias ssh="TERM=xterm-256color ssh"
-alias ls="exa -g --git"
-alias ll="exa -aghl --git"
+alias ls="eza -g --git"
+alias ll="eza -aghl --git"
+alias brew_update="brew update && brew upgrade; brew autoremove; brew cleanup -s"
 alias lsusb="ioreg -p IOUSB"
 
 alias git_gc="git gc --aggressive --prune"
