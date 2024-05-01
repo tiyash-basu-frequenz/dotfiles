@@ -58,8 +58,6 @@ elif [[ $(uname) == "Linux" ]]; then
 
     # delete key
     bindkey "^[[3~"     delete-char
-
-    alias lsusb="lsusb -v"
 fi
 
 autoload -Uz compinit
