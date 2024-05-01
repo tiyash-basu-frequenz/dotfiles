@@ -13,23 +13,47 @@ PROMPT="%F{045}%n@%m%B:%b %F{156}%1~ %F{050}%B%#%b %F{046}"
 # Add homebrew to PATH
 PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 
-_zsh_plugins_dir="/opt/homebrew/share"
+if [[ $(uname) == "Darwin" ]]; then
+    _zsh_plugins_dir="/opt/homebrew/share"
+elif [[ $(uname) == "Linux" ]]; then
+    _zsh_plugins_dir="/usr/share"
+fi
+
 source ${_zsh_plugins_dir}/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${_zsh_plugins_dir}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ${_zsh_plugins_dir}/zsh-history-substring-search/zsh-history-substring-search.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-# history search
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+if [[ $(uname) == "Darwin" ]]; then
+    # history search
+    bindkey '^[[A'  history-substring-search-up
+    bindkey '^[[B'  history-substring-search-down
 
-# option + left/right
-bindkey "^[[1;3D"	backward-word
-bindkey	"^[[1;3C"	forward-word
+    # option + left/right
+    bindkey "^[[1;3D"   backward-word
+    bindkey	"^[[1;3C"   forward-word
 
-# cmd + left/right
-bindkey "^[[1;9D"	beginning-of-line
-bindkey "^[[1;9C"	end-of-line
+    # cmd + left/right
+    bindkey "^[[1;9D"   beginning-of-line
+    bindkey "^[[1;9C"   end-of-line
+
+    alias brew_update="brew update && brew upgrade; brew autoremove; brew cleanup -s"
+    alias lsusb="ioreg -p IOUSB"
+elif [[ $(uname) == "Linux" ]]; then
+    # history search
+    bindkey '^[[A'  history-substring-search-up
+    bindkey '^[[B'  history-substring-search-down
+
+    # option + left/right
+    bindkey	"^[[1;3C"   forward-word
+    bindkey "^[[1;3D"   backward-word
+
+    # ctrl + left/right
+    bindkey	"^[[H"      beginning-of-line
+    bindkey "^[[F"      end-of-line
+
+    alias lsusb="lsusb -v"
+fi
 
 autoload -Uz compinit
 compinit
@@ -42,9 +66,8 @@ alias vim="nvim"
 alias ssh="TERM=xterm-256color ssh"
 alias ls="eza -g --git"
 alias ll="eza -aghl --git"
-alias brew_update="brew update && brew upgrade; brew autoremove; brew cleanup -s"
-alias lsusb="ioreg -p IOUSB"
 
+# Git aliases
 alias git_gc="git gc --aggressive --prune"
 alias gru="git remote update --prune"
 alias grp="git remote prune"
