@@ -44,13 +44,20 @@ elif [[ $(uname) == "Linux" ]]; then
     bindkey '^[[A'  history-substring-search-up
     bindkey '^[[B'  history-substring-search-down
 
-    # option + left/right
+    # ctrl + left/right
+    bindkey	"^[[1;5C"   forward-word
+    bindkey "^[[1;5D"   backward-word
+
+    # alt + left/right
     bindkey	"^[[1;3C"   forward-word
     bindkey "^[[1;3D"   backward-word
 
-    # ctrl + left/right
+    # Home/End
     bindkey	"^[[H"      beginning-of-line
     bindkey "^[[F"      end-of-line
+
+    # delete key
+    bindkey "^[[3~"     delete-char
 
     alias lsusb="lsusb -v"
 fi
