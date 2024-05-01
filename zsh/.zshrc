@@ -60,7 +60,7 @@ compinit
 
 eval "$(starship init zsh)"
 
-neofetch
+fastfetch
 
 alias vim="nvim"
 alias ssh="TERM=xterm-256color ssh"

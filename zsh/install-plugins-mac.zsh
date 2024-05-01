@@ -1,5 +1,5 @@
 #!/bin/zsh
 
-brew install starship zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
+brew install fastfetch starship zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
 
 

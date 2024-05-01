@@ -4,4 +4,4 @@ dnf config-manager --add-repo https://download.opensuse.org/repositories/shells:
 
 dnf update
 
-dnf install starship zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search
+dnf install -y fastfetch starship zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search
