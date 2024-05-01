@@ -20,7 +20,7 @@ setup-tmux:
 
 setup-nvim:
 	mkdir -p $(_out_dir)/.config/nvim
-	cp -r nvim/.config/nvim $(_out_dir)/.config/
+	cp -r nvim $(_out_dir)/.config/
 
 setup-zsh:
 	cp zsh/.zshrc $(_out_dir)/.zshrc
