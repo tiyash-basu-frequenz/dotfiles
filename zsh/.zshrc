@@ -84,6 +84,10 @@ alias grp="git remote prune"
 alias gsfc="git submodule foreach git checkout . && git submodule foreach git submodule foreach git checkout ."
 alias gsu="git submodule update --init --recursive"
 
+# gh tool aliases
+alias ghce="gh copilot explain"
+alias ghcs="gh copilot suggest"
+
 function validate_args_eq() {
     expected_num=$1
     actual_num=$2
