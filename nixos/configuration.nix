@@ -139,6 +139,7 @@
     rustup
     starship
     tmux
+    usbutils
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-history-substring-search
