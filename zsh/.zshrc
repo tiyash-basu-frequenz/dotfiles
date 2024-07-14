@@ -10,17 +10,17 @@ export GPG_TTY
 # Fallback prompt
 PROMPT="%F{045}%n@%m%B:%b %F{156}%1~ %F{050}%B%#%b %F{046}"
 
-# Add homebrew to PATH
-PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
-
 # If MacOS
 if [[ $(uname) == "Darwin" ]]; then
-    _zsh_plugins_dir="/opt/homebrew/share"
+    # Add homebrew to PATH
+    PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+   _zsh_plugins_dir="/opt/homebrew/share"
 # If nixOS
 elif [[ $(uname) == "Linux" ]] && [[ -d "/run/current-system/sw/share" ]]; then
     _zsh_plugins_dir="/run/current-system/sw/share"
 # If other Linux
 elif [[ $(uname) == "Linux" ]]; then
+    PATH=~/.local/bin:$PATH
     _zsh_plugins_dir="/usr/share"
 fi
 
