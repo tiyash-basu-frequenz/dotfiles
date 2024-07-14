@@ -104,10 +104,10 @@
     isNormalUser = true;
     description = "Tiyash Basu";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
+    # packages = with pkgs; [
+    #   kdePackages.kate
+    #   thunderbird
+    # ];
   };
 
   # Set default user shell to zsh
@@ -126,7 +126,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     alacritty
-    bat
     btop
     eza
     fastfetch
