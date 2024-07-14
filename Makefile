@@ -11,12 +11,14 @@ _gpg := $(shell gpg --list-secret-keys --keyid-format=long | grep -B2 $(_email) 
 # output directory
 _out_dir := $(HOME)
 
+_system := $(shell uname -s)
+
 .PHONY: setup-tmux setup-nvim setup-zsh setup-alacritty setup-kitty setup-ssh setup-vscode setup-git-user setup-git-commit-template setup-git setup-all
 
 setup-tmux:
 	mkdir -p $(_out_dir)/.tmux/plugins
 	-git clone https://github.com/tmux-plugins/tpm $(_out_dir)/.tmux/plugins/tpm
-	cp tmux/tmux.conf $(_out_dir)/.tmux.conf
+	cp tmux/$(_system)/tmux.conf $(_out_dir)/.tmux.conf
 	@echo "Install tmux plugins by pressing prefix + I"
 
 setup-nvim:
