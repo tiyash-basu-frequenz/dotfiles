@@ -146,9 +146,9 @@
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-history-substring-search
-    # If this is in a VM:
-    spice-vdagent
-    virtiofsd
+    # If this is in a UTM VM:
+    # spice-vdagent
+    # virtiofsd
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -170,11 +170,13 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  fileSystems."/mnt/shared" = {
-    fsType = "virtiofs";
-    device = "share";
-    options = [ "defaults" "nofail" ];
-  };
+  # Uncoment If this system is a UTM AppleVF VM
+  # This makes the shared directory available to the VM at `/mnt/shared`
+  # fileSystems."/mnt/shared" = {
+  #   fsType = "virtiofs";
+  #   device = "share";
+  #   options = [ "defaults" "nofail" ];
+  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
