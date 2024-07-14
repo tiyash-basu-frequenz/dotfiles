@@ -41,8 +41,9 @@ setup-git-user:
 	git config --global user.email $(_email)
 	git config --global user.signingkey $(_gpg)
 	git config --global commit.gpgsign true
+	@echo "### COPY FROM THIS LINE ONWARDS ###"
 	gpg --armor --export $(_gpg)
-	@echo "-----DO NOT COPY FROM THIS LINE ONWARDS-----"
+	@echo "### DO NOT COPY FROM THIS LINE ONWARDS ###"
 
 setup-git-commit-template:
 	cp git/.gitmessage ~/.gitmessage
