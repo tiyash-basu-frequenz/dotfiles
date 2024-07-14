@@ -10,7 +10,7 @@ _gpg := $(shell gpg --list-secret-keys --keyid-format=long | grep -B2 $(_email) 
 # output directory
 _out_dir := $(HOME)
 
-.PHONY: setup-tmux setup-nvim setup-zsh setup-kitty setup-ssh setup-vscode setup-git-user setup-git-commit-template setup-git setup-all
+.PHONY: setup-tmux setup-nvim setup-zsh setup-alacritty setup-kitty setup-ssh setup-vscode setup-git-user setup-git-commit-template setup-git setup-all
 
 setup-tmux:
 	mkdir -p $(_out_dir)/.tmux/plugins
@@ -25,6 +25,11 @@ setup-nvim:
 setup-zsh:
 	cp zsh/.zshrc $(_out_dir)/.zshrc
 	@echo "Check plugins in the zsh directory here"
+
+setup-alacritty:
+	mkdir -p ~/.config/alacritty/themes
+	-git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+	cp alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 setup-kitty:
 	cp kitty/.config/kitty/* $(_out_dir)/.config/kitty/
