@@ -123,7 +123,6 @@
   #  wget
     bat
     btop
-    clang-tools
     eza
     fastfetch
     fira-code-nerdfont
