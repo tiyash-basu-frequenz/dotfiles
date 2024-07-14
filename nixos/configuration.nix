@@ -119,19 +119,18 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    alacritty
     bat
     btop
     eza
     fastfetch
     fira-code-nerdfont
     gcc
+    gdb
     gitFull
     gnumake
     gnupg
     jq
-    kitty
     libclang
     nano
     neovim
@@ -141,6 +140,7 @@
     rustup
     starship
     tmux
+    unzip
     usbutils
     zsh-autosuggestions
     zsh-syntax-highlighting
