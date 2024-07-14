@@ -3,6 +3,7 @@
 # Set ID
 _name := "Tiyash Basu"
 _email := "tiyashbasu@gmail.com"
+# _email := "tiyash.basu@frequenz.com"
 
 # get gpg key
 _gpg := $(shell gpg --list-secret-keys --keyid-format=long | grep -B2 $(_email) | head -n1 | cut -d'/' -f2 | cut -d' ' -f1)
