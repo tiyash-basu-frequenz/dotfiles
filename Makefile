@@ -14,7 +14,7 @@ _out_dir := $(HOME)
 
 setup-tmux:
 	mkdir -p $(_out_dir)/.tmux/plugins
-	git clone https://github.com/tmux-plugins/tpm $(_out_dir)/.tmux/plugins/tpm
+	-git clone https://github.com/tmux-plugins/tpm $(_out_dir)/.tmux/plugins/tpm
 	cp tmux/.tmux.conf $(_out_dir)/.tmux.conf
 	@echo "Install tmux plugins by pressing prefix + I"
 
