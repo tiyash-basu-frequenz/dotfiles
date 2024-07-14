@@ -16,7 +16,7 @@ _out_dir := $(HOME)
 setup-tmux:
 	mkdir -p $(_out_dir)/.tmux/plugins
 	-git clone https://github.com/tmux-plugins/tpm $(_out_dir)/.tmux/plugins/tpm
-	cp tmux/.tmux.conf $(_out_dir)/.tmux.conf
+	cp tmux/tmux.conf $(_out_dir)/.tmux.conf
 	@echo "Install tmux plugins by pressing prefix + I"
 
 setup-nvim:
@@ -24,7 +24,7 @@ setup-nvim:
 	cp -r nvim $(_out_dir)/.config/
 
 setup-zsh:
-	cp zsh/.zshrc $(_out_dir)/.zshrc
+	cp zsh/zshrc $(_out_dir)/.zshrc
 	@echo "Check plugins in the zsh directory here"
 
 setup-alacritty:
@@ -33,10 +33,10 @@ setup-alacritty:
 	cp alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 setup-kitty:
-	cp kitty/.config/kitty/* $(_out_dir)/.config/kitty/
+	cp kitty/* $(_out_dir)/.config/kitty/
 
 setup-ssh:
-	cp ssh/.ssh/config $(_out_dir)/.ssh/config
+	cp ssh/config $(_out_dir)/.ssh/config
 
 setup-vscode:
 	cp vscode/settings.json $(_out_dir)/Library/Application\ Support/Code/User/settings.json
@@ -52,7 +52,7 @@ setup-git-user:
 	@echo "### DO NOT COPY FROM THIS LINE ONWARDS ###"
 
 setup-git-commit-template:
-	cp git/.gitmessage ~/.gitmessage
+	cp git/gitmessage ~/.gitmessage
 	git config --global commit.template ~/.gitmessage
 
 setup-git: setup-git-user setup-git-commit-template
