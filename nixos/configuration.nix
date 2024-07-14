@@ -19,6 +19,12 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "nixos"; # Define your hostname.
+  networking.hostFiles = [
+    (pkgs.writeTextFile {
+      name = "etc_hosts";
+      text = builtins.readFile /home/tiyash/etc_hosts;
+    })
+  ];
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
