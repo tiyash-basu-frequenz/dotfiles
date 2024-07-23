@@ -33,8 +33,18 @@ vim.keymap.set("n", "<C-;>", vim.lsp.buf.definition, {})
 vim.keymap.set("n", "<C-S-:>", vim.lsp.buf.references, {})
 vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, {})
 vim.keymap.set("n", "<C-S-i>", vim.lsp.buf.format, {})
-vim.keymap.set('n', '<leader>e', function() vim.diagnostic.open_float({ scope = 'line' }) end,
-    { desc = 'Show diagnostics for current line' })
+vim.keymap.set("n", "<leader>e", function()
+    vim.diagnostic.open_float({ scope = "line" })
+end, { desc = "Show diagnostics for current line" })
+
+-- Inlay Hints
+vim.keymap.set("n", "<C-k>", function()
+    if vim.lsp.inlay_hint.is_enabled() then
+        vim.lsp.inlay_hint.enable(false)
+    else
+        vim.lsp.inlay_hint.enable(true)
+    end
+end, { desc = "Toggle Inlay Hints" })
 
 -- shortcuts - git
 vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
