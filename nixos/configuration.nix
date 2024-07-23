@@ -135,6 +135,7 @@
     gitFull
     gnumake
     gnupg
+    grpcurl
     jq
     libclang
     nano
@@ -142,6 +143,7 @@
     nodejs
     podman-tui
     python3Full
+    ripgrep
     rustup
     starship
     tmux
