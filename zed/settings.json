@@ -1,0 +1,43 @@
+{
+    "theme": "Ayu Mirage",
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false
+    },
+    "buffer_font_family": "FiraCode Nerd Font",
+    "buffer_font_features": {
+        "calt": false
+    },
+    "buffer_font_size": 13,
+    "show_wrap_guides": true,
+    "wrap_guides": [80, 100, 120],
+    "hard_tabs": false,
+    "tab_size": 4,
+    "preferred_line_length": 100,
+    "use_autoclose": true,
+    "remove_trailing_whitespace_on_save": true,
+    "ensure_final_newline_on_save": true,
+    "enable_language_server": true,
+    "lsp": {
+        "rust-analyzer": {
+            "cargo": {
+                "targetDir": "target/check"
+            },
+            "initialization_options": {
+                "rust": {
+                    "analyzerTargetDir": true,
+                    "inlayHints": {
+                        "maxLength": null,
+                        "lifetimeElisionHints": {
+                            "useParameterNames": true,
+                            "enable": "skip_trivial"
+                        },
+                        "closureReturnTypeHints": {
+                            "enable": "always"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

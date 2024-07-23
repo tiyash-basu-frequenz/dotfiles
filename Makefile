@@ -21,10 +21,6 @@ setup-tmux:
 	cp tmux/$(_system)/tmux.conf $(_out_dir)/.tmux.conf
 	@echo "Install tmux plugins by pressing prefix + I"
 
-setup-nvim:
-	mkdir -p $(_out_dir)/.config/nvim
-	cp -r nvim $(_out_dir)/.config/
-
 setup-zsh:
 	cp zsh/zshrc $(_out_dir)/.zshrc
 	@echo "Check plugins in the zsh directory here"
@@ -39,6 +35,14 @@ setup-kitty:
 
 setup-ssh:
 	cp ssh/config $(_out_dir)/.ssh/config
+
+setup-nvim:
+	mkdir -p $(_out_dir)/.config/nvim
+	cp -r nvim $(_out_dir)/.config/
+
+setup-zed:
+	mkdir -p $(_out_dir)/.config/zed
+	cp zed/settings.json $(_out_dir)/.config/zed/settings.json
 
 setup-vscode:
 	cp vscode/settings.json $(_out_dir)/Library/Application\ Support/Code/User/settings.json
