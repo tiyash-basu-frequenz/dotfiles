@@ -126,10 +126,12 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     alacritty
+    bat
     btop
     eza
     fastfetch
     fira-code-nerdfont
+    fzf
     gcc
     gdb
     gitFull
