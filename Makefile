@@ -51,8 +51,11 @@ setup-vscode:
 setup-git-user:
 	git config --global user.name $(_name)
 	git config --global user.email $(_email)
+	git config --global core.editor nvim
 	git config --global user.signingkey $(_gpg)
+	git config --global format.signOff true
 	git config --global commit.gpgsign true
+	git config --global tag.gpgsign true
 	@echo "### COPY FROM THIS LINE ONWARDS ###"
 	gpg --armor --export $(_gpg)
 	@echo "### DO NOT COPY FROM THIS LINE ONWARDS ###"
