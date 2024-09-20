@@ -4,6 +4,13 @@
 
 { config, pkgs, ... }:
 
+let
+  # This is for installing packages from the unstable channel
+  # Remember to run the following beforehand:
+  # $ nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+  # $ nix-channel --update
+  unstable = import <nixos-unstable> {};
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -157,6 +164,9 @@
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-history-substring-search
+    # unstable channel packagesß
+    unstable.kitty
+    unstable.zed-editor
     # If this is in a UTM VM:
     # spice-vdagent
     # virtiofsd
@@ -211,4 +221,3 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 }
-
