@@ -1,4 +1,12 @@
 {
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
+    },
+    "version": "2"
+  },
+  "vim_mode": true,
   "terminal": {
     "dock": "right"
   },
@@ -13,18 +21,35 @@
   },
   "buffer_font_size": 13,
   "show_wrap_guides": true,
-  "wrap_guides": [80, 100, 120],
+  "wrap_guides": [
+    80,
+    100,
+    120
+  ],
   "hard_tabs": false,
   "tab_size": 4,
   "preferred_line_length": 100,
+  "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "ensure_final_newline_on_save": true,
   "enable_language_server": true,
   "format_on_save": "on",
   "formatter": "language_server",
   "languages": {
-    "Markdown": {
+    "Dockerfile": {
+      "format_on_save": "off"
+    },
+    "JSON": {
+      "tab_size": 2
+    },
+    "JSONC": {
+      "tab_size": 2
+    },
+    "Make": {
       "hard_tabs": true
+    },
+    "Markdown": {
+      "format_on_save": "off"
     },
     "TOML": {
       "format_on_save": "off"
@@ -34,21 +59,29 @@
     }
   },
   "use_autoclose": true,
+  "inlay_hints": {
+    "enabled": false,
+    "show_type_hints": true,
+    "show_parameter_hints": false,
+    "show_other_hints": false,
+    "edit_debounce_ms": 700,
+    "scroll_debounce_ms": 50
+  },
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
-        "rust": {
-          "analyzerTargetDir": true,
-          "inlayHints": {
-            "maxLength": null,
-            "lifetimeElisionHints": {
-              "useParameterNames": true,
-              "enable": "skip_trivial"
-            },
-            "closureReturnTypeHints": {
-              "enable": "always"
-            }
+        "inlayHints": {
+          "maxLength": null,
+          "lifetimeElisionHints": {
+            "useParameterNames": true,
+            "enable": "skip_trivial"
+          },
+          "closureReturnTypeHints": {
+            "enable": "always"
           }
+        },
+        "rust": {
+          "analyzerTargetDir": true
         }
       }
     }
