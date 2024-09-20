@@ -139,12 +139,15 @@
     gnupg
     grpcurl
     jq
-    libclang
+    libgcc
     nano
     neovim
+    nix-index
     nodejs
     podman-tui
+    protobuf
     python3Full
+    puppet-bolt
     ripgrep
     rustup
     starship
