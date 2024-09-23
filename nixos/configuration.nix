@@ -162,6 +162,7 @@ in
     tmux
     unzip
     usbutils
+    wl-clipboard
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-history-substring-search
