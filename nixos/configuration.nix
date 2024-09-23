@@ -147,6 +147,7 @@ in
     grpcurl
     jq
     libgcc
+    lua-language-server
     nano
     neovim
     nix-index
