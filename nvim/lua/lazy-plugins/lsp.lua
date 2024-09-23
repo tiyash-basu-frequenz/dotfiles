@@ -18,12 +18,19 @@ return {
         lazy = false,
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
             local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({
+
+            lspconfig.rust_analyzer.setup({
+                -- remove this line if you have rust-analyzer installed by Mason
+                cmd = { "rust-analyzer" },
+                filetypes = { "rust" },
                 capabilities = capabilities,
             })
-            lspconfig.rust_analyzer.setup({
+
+            lspconfig.lua_ls.setup({
+                -- remove this line if you have lua-language-server installed by Mason
+                cmd = { "lua-language-server" },
+                filetypes = { "lua" },
                 capabilities = capabilities,
             })
         end,

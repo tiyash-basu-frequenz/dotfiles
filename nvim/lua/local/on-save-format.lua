@@ -5,7 +5,7 @@ vim.api.nvim_create_augroup("AutoFormatting", {})
 
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = { "*" },
-group = "AutoFormatting",
+    group = "AutoFormatting",
     callback = function()
         -- Get the current buffer's filetype
         local filetype = vim.bo.filetype
