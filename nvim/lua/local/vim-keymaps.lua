@@ -8,16 +8,6 @@ vim.keymap.set("i", "<C-s>", function()
     vim.api.nvim_command("startinsert")
 end, {})
 
--- indent right
-vim.keymap.set("n", "<C-\\>", ">><right><right><right><right>", {})
-vim.keymap.set("v", "<C-\\>", ">gv<right><right><right><right>", {})
-vim.keymap.set("i", "<C-\\>", "<ESC>>><right><right><right><right>gi", {})
-
--- indent left
-vim.keymap.set("n", "<C-]>", "<<<left><left><left><left>", {})
-vim.keymap.set("v", "<C-]>", "<gv<left><left><left><left>", {})
-vim.keymap.set("i", "<C-]>", "<ESC><<<left><left><left><left>gi", {})
-
 -- shortcuts - neotree
 vim.keymap.set("n", "<C-b>", ":Neotree filesystem reveal left<CR>", {})
 
@@ -28,11 +18,11 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 
 -- shortcuts - LSP
 -- https://neovim.io/doc/user/lsp.html
-vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-vim.keymap.set("n", "<C-;>", vim.lsp.buf.definition, {})
-vim.keymap.set("n", "<C-S-:>", vim.lsp.buf.references, {})
-vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, {})
-vim.keymap.set("n", "<C-S-i>", vim.lsp.buf.format, {})
+vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, {})
+vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, {})
+vim.keymap.set("n", "<leader>cr", vim.lsp.buf.references, {})
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, {})
 vim.keymap.set("n", "<leader>e", function()
     vim.diagnostic.open_float({ scope = "line" })
 end, { desc = "Show diagnostics for current line" })
@@ -60,18 +50,3 @@ end, {})
 vim.keymap.set("n", "<F2>", function()
     refactor.lsp_rename_symbol()
 end, {})
-
--- shortcuts - nvim-spectre
--- require("spectre").setup()
--- vim.keymap.set("n", "<leader>S", "<cmd>lua require(\"spectre\").toggle()<CR>", {
---     desc = "Toggle Spectre",
--- })
--- vim.keymap.set("n", "<leader>sw", "<cmd>lua require(\"spectre\").open_visual({select_word=true})<CR>", {
---     desc = "Search current word",
--- })
--- vim.keymap.set("v", "<leader>sw", "<esc><cmd>lua require(\"spectre\").open_visual()<CR>", {
---     desc = "Search current word",
--- })
--- vim.keymap.set("n", "<leader>sp", "<cmd>lua require(\"spectre\").open_file_search({select_word=true})<CR>", {
---     desc = "Search on current file",
--- })
