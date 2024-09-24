@@ -149,7 +149,6 @@ in
     libgcc
     lua-language-server
     nano
-    neovim
     nix-index
     nodejs
     podman-tui
@@ -168,6 +167,7 @@ in
     zsh-history-substring-search
     # unstable channel packagesß
     unstable.kitty
+    unstable.neovim
     unstable.zed-editor
     # If this is in a UTM VM:
     # spice-vdagent
