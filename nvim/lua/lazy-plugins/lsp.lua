@@ -1,3 +1,9 @@
+-- rust-analyzer settings
+local rust_analyzer = {
+    target_dir = "target/rust_analyzer",
+    -- override_cmd = { "cargo", "clippy", "--workspace", "--message-format=json" },
+}
+
 return {
     {
         "williamboman/mason.nvim",
@@ -25,6 +31,13 @@ return {
                 cmd = { "rust-analyzer" },
                 filetypes = { "rust" },
                 capabilities = capabilities,
+                settings = {
+                    ["rust-analyzer"] = {
+                        cargo = {
+                            targetDir = rust_analyzer.target_dir,
+                        },
+                    },
+                },
             })
 
             lspconfig.lua_ls.setup({
