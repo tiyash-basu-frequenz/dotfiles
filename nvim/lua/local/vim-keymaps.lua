@@ -12,9 +12,12 @@ end, {})
 vim.keymap.set("n", "<C-b>", ":Neotree filesystem reveal left<CR>", {})
 
 -- shortcuts - telescope
+-- see https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file#pickers
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<C-p>", builtin.find_files, {})
+vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
+vim.keymap.set("n", "<leader>fj", builtin.jumplist, {})
 
 -- shortcuts - LSP
 -- https://neovim.io/doc/user/lsp.html
