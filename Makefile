@@ -69,4 +69,7 @@ setup-git: setup-git-user setup-git-commit-template
 setup-nixos:
 	cp nixos/configuration.nix /etc/nixos/configuration.nix
 
+setup-zellij:
+	cp -r zellij $(_out_dir)/.config/
+
 setup-all: setup-tmux setup-nvim setup-zsh setup-kitty setup-ssh setup-vscode setup-git
