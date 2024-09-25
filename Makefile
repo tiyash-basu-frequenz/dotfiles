@@ -72,4 +72,7 @@ setup-nixos:
 setup-zellij:
 	cp -r zellij $(_out_dir)/.config/
 
+setup-fastfetch:
+	cp fastfetch/config.jsonc $(_out_dir)/.config/fastfetch/config.jsonc
+
 setup-all: setup-tmux setup-nvim setup-zsh setup-kitty setup-ssh setup-vscode setup-git
