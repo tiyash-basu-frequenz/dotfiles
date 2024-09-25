@@ -166,12 +166,17 @@ in
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-history-substring-search
-    # unstable channel packages
+    ## unstable channel packages
     unstable.kitty
     unstable.neovim
-    # If this is in a UTM VM:
+    ## If this is in a UTM VM:
     # spice-vdagent
     # virtiofsd
+    ## neovim plugins
+    black
+    lua-language-server
+    nodePackages.prettier
+    stylua
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
