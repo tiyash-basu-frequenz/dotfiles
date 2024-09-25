@@ -129,6 +129,14 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Install neovim
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -168,7 +176,6 @@ in
     zsh-history-substring-search
     ## unstable channel packages
     unstable.kitty
-    unstable.neovim
     ## If this is in a UTM VM:
     # spice-vdagent
     # virtiofsd
