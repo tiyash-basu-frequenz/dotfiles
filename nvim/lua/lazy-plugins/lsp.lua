@@ -1,24 +1,4 @@
--- rust-analyzer settings
-local rust_analyzer = {
-    target_dir = "target/rust_analyzer",
-    -- override_cmd = { "cargo", "clippy", "--workspace", "--message-format=json" },
-}
-
 return {
-    {
-        "williamboman/mason.nvim",
-        lazy = false,
-        config = function()
-            require("mason").setup()
-        end,
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        lazy = false,
-        opts = {
-            auto_install = true,
-        },
-    },
     {
         "neovim/nvim-lspconfig",
         lazy = false,
@@ -34,7 +14,7 @@ return {
                 settings = {
                     ["rust-analyzer"] = {
                         cargo = {
-                            targetDir = rust_analyzer.target_dir,
+                            targetDir = "target/rust_analyzer",
                         },
                     },
                 },
@@ -48,4 +28,37 @@ return {
             })
         end,
     },
+    {
+        "nvimtools/none-ls.nvim",
+        config = function()
+            local null_ls = require("null-ls")
+            null_ls.setup({
+                sources = {
+                    null_ls.builtins.formatting.black,
+                    null_ls.builtins.formatting.isort,
+                    null_ls.builtins.formatting.stylua,
+                    null_ls.builtins.formatting.prettier,
+                },
+            })
+        end,
+    },
+    {
+        "tiyashbasu/refactor.nvim",
+    },
+    -- Commenting out Mason for NixOS compatibility,
+    -- because the binaries it downloads are not compatible with NixOS.
+    -- {
+    --     "williamboman/mason.nvim",
+    --     lazy = false,
+    --     config = function()
+    --         require("mason").setup()
+    --     end,
+    -- },
+    -- {
+    --     "williamboman/mason-lspconfig.nvim",
+    --     lazy = false,
+    --     opts = {
+    --         auto_install = true,
+    --     },
+    -- },
 }
