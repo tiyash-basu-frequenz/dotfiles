@@ -162,13 +162,13 @@ in
     unzip
     usbutils
     wl-clipboard
+    zellij
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-history-substring-search
-    # unstable channel packagesß
+    # unstable channel packages
     unstable.kitty
     unstable.neovim
-    unstable.zed-editor
     # If this is in a UTM VM:
     # spice-vdagent
     # virtiofsd
