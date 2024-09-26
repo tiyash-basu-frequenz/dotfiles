@@ -5,11 +5,11 @@ return {
     config = function()
         require("Comment").setup({
             toggler = {
-                line = "<C-/>",
+                line = "<M-/>",
                 block = "gbc",
             },
             opleader = {
-                line = "<C-S-/>",
+                line = "gc",
                 block = "gb",
             },
         })
