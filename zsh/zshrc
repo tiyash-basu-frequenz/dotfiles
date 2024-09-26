@@ -29,11 +29,12 @@ source ${_zsh_plugins_dir}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ${_zsh_plugins_dir}/zsh-history-substring-search/zsh-history-substring-search.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-if [[ $(uname) == "Darwin" ]]; then
-    # history search
-    bindkey '^[[A'  history-substring-search-up
-    bindkey '^[[B'  history-substring-search-down
+bindkey '^R' history-incremental-search-backward
+# history search
+bindkey '^[[A'  history-substring-search-up
+bindkey '^[[B'  history-substring-search-down
 
+if [[ $(uname) == "Darwin" ]]; then
     # option + left/right
     bindkey "^[[1;3D"   backward-word
     bindkey	"^[[1;3C"   forward-word
@@ -45,10 +46,6 @@ if [[ $(uname) == "Darwin" ]]; then
     alias brew_update="brew update && brew upgrade; brew autoremove; brew cleanup -s"
     alias lsusb="ioreg -p IOUSB"
 elif [[ $(uname) == "Linux" ]]; then
-    # history search
-    bindkey '^[[A'  history-substring-search-up
-    bindkey '^[[B'  history-substring-search-down
-
     # ctrl + left/right
     bindkey	"^[[1;5C"   forward-word
     bindkey "^[[1;5D"   backward-word
