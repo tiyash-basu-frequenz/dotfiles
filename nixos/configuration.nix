@@ -120,9 +120,6 @@ in
   # Set default user shell to zsh
   users.defaultUserShell = pkgs.zsh;
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   # Install zsh
   programs.zsh.enable = true;
 
@@ -143,10 +140,10 @@ in
     alacritty
     bat
     btop
+    chromium
     eza
     fastfetch
     fira-code-nerdfont
-    fzf
     gcc
     gdb
     gitFull
@@ -163,7 +160,6 @@ in
     protobuf
     python3Full
     puppet-bolt
-    ripgrep
     rustup
     starship
     tmux
@@ -181,7 +177,9 @@ in
     # virtiofsd
     ## neovim plugins
     black
+    fzf
     lua-language-server
+    ripgrep
     nodePackages.prettier
     stylua
   ];
@@ -192,6 +190,11 @@ in
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+  };
+
+  # Start chromium with wayland support
+  nixpkgs.config.chromium = {
+    commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
   };
 
   # List services that you want to enable:
