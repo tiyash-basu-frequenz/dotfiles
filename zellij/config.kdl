@@ -5,10 +5,10 @@ simplified_ui false
 on_force_close "quit"
 
 keybinds clear-defaults=true {
-    normal {
-        // uncomment this and adjust key if using copy_on_select=false
-        bind "Alt y" { Copy; }
-    }
+    // normal {
+    //     // uncomment this and adjust key if using copy_on_select=false
+    //     bind "Alt c" { Copy; }
+    // }
 
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
@@ -16,7 +16,9 @@ keybinds clear-defaults=true {
 
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
+        bind "Alt u" { NewPane "Up"; }
         bind "Alt d" { NewPane "Down"; }
+        bind "Alt l" { NewPane "Left"; }
         bind "Alt r" { NewPane "Right"; }
         bind "Alt i" { MoveTab "Left"; }
         bind "Alt o" { MoveTab "Right"; }
@@ -54,7 +56,7 @@ keybinds clear-defaults=true {
     }
 
     shared_except "tab" "locked" {
-        bind "Ctrl t" { SwitchToMode "Tab"; }
+        bind "Ctrl a" { SwitchToMode "Tab"; }
     }
 }
 
