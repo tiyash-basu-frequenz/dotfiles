@@ -73,7 +73,6 @@ in
     konsole
     oxygen
     plasma-browser-integration
-    spectacle
   ];
 
   # Enable the X11 windowing system.
@@ -111,10 +110,32 @@ in
     isNormalUser = true;
     description = "Tiyash Basu";
     extraGroups = [ "networkmanager" "wheel" ];
-    # packages = with pkgs; [
-    #   kdePackages.kate
-    #   thunderbird
-    # ];
+    packages = with pkgs; [
+        bat
+        btop
+        eza
+        fastfetch
+        grpcurl
+        jq
+        nodejs
+        protobuf
+        puppet-bolt
+        rustup
+        starship
+        tmux
+        zellij
+        zsh-autosuggestions
+        zsh-syntax-highlighting
+        zsh-history-substring-search
+
+        ## neovim plugins
+        black
+        fzf
+        lua-language-server
+        nodePackages.prettier
+        ripgrep
+        stylua
+    ];
   };
 
   # Set default user shell to zsh
@@ -138,50 +159,29 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     alacritty
-    bat
-    btop
     chromium
-    eza
-    fastfetch
     fira-code-nerdfont
+    firefox
     gcc
     gdb
     gitFull
     gnumake
     gnupg
-    grpcurl
-    jq
     libgcc
-    lua-language-server
     nano
     nix-index
-    nodejs
     podman-tui
-    protobuf
     python3Full
-    puppet-bolt
-    rustup
-    starship
-    tmux
     unzip
     usbutils
     wl-clipboard
-    zellij
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    zsh-history-substring-search
+
     ## unstable channel packages
     unstable.kitty
+
     ## If this is in a UTM VM:
     # spice-vdagent
     # virtiofsd
-    ## neovim plugins
-    black
-    fzf
-    lua-language-server
-    ripgrep
-    nodePackages.prettier
-    stylua
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

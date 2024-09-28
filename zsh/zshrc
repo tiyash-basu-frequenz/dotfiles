@@ -17,7 +17,8 @@ if [[ $(uname) == "Darwin" ]]; then
    _zsh_plugins_dir="/opt/homebrew/share"
 # If nixOS
 elif [[ $(uname) == "Linux" ]] && [[ -d "/run/current-system/sw/share" ]]; then
-    _zsh_plugins_dir="/run/current-system/sw/share"
+    PATH=/etc/profiles/per-user/$USER/bin:$PATH
+    _zsh_plugins_dir="/etc/profiles/per-user/$USER/share"
 # If other Linux
 elif [[ $(uname) == "Linux" ]]; then
     PATH=~/.local/bin:$PATH
@@ -84,6 +85,11 @@ alias gsu="git submodule update --init --recursive"
 # gh tool aliases
 alias ghce="gh copilot explain"
 alias ghcs="gh copilot suggest"
+
+# Dev container aliases
+PATH=$HOME/Dev/fqz/dev_containers/rust_arm64_host/scripts:$PATH
+PATH=$HOME/Dev/fqz/dev_containers/go/scripts:$PATH
+PATH=$HOME/Dev/fqz/dev_containers/python/scripts:$PATH
 
 function validate_args_eq() {
     expected_num=$1
