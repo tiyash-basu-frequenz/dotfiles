@@ -8,6 +8,14 @@ vim.keymap.set("i", "<C-s>", function()
     vim.api.nvim_command("startinsert")
 end, {})
 
+-- tab navigation
+-- see https://neovim.io/doc/user/tabpage.html
+vim.keymap.set("n", "<leader>tt", ":tabnew<CR>", { desc = "New tab" })
+vim.keymap.set("n", "<leader>tr", ":-tabnext<CR>", { desc = "Previous tab" })
+vim.keymap.set("n", "<leader>ty", ":+tabnext<CR>", { desc = "Next tab" })
+vim.keymap.set("n", "<leader>te", ":-tabmove<CR>", { desc = "Move tab right" })
+vim.keymap.set("n", "<leader>tu", ":+tabmove<CR>", { desc = "Move tab left" })
+
 -- shortcuts - neotree
 vim.keymap.set("n", "<C-b>", ":Neotree filesystem reveal left<CR>", { desc = "Open file browser" })
 
