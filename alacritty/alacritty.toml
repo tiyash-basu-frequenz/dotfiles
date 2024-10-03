@@ -15,4 +15,4 @@ dynamic_padding = true
 
 [shell]
 program = "zsh"
-args = ["-l", "-c", "zellij"]
+args = ["-l", "-c", "tmux"]
