@@ -38,6 +38,11 @@ return {
                     null_ls.builtins.formatting.isort,
                     null_ls.builtins.formatting.stylua,
                     null_ls.builtins.formatting.prettier,
+                    null_ls.builtins.diagnostics.cspell.with({
+                        diagnostics_postprocess = function(diagnostic)
+                            diagnostic.severity = vim.diagnostic.severity.INFO
+                        end,
+                    }),
                 },
             })
         end,
