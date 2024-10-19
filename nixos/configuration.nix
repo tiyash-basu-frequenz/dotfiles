@@ -115,6 +115,7 @@ in
         btop
         eza
         fastfetch
+        gh
         grpcurl
         jq
         nodejs
