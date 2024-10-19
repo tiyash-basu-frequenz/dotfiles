@@ -75,6 +75,7 @@ setup-git-user:
 	git config --global user.signingkey $(_gpg)
 	git config --global format.signOff true
 	git config --global commit.gpgsign true
+	git config --global commit.verbose true
 	git config --global tag.gpgsign true
 	@echo "### COPY FROM THIS LINE ONWARDS ###"
 	gpg --armor --export $(_gpg)
