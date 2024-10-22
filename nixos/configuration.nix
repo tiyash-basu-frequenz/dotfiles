@@ -62,10 +62,11 @@ in
   # Enable Wayland for SDDM
   services.displayManager.sddm.wayland.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
+  # Enable SDDM
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
 
+  # Enable KDE Plasma 6
+  services.desktopManager.plasma6.enable = true;
   # Excluding a few KDE defaults
   environment.plasma6.excludePackages = with pkgs.libsForQt5; [
     elisa
@@ -105,56 +106,56 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  };
+
+  # Install zsh
+  programs.zsh.enable = true;
+
+  # Install neovim
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+  };
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tiyash = {
     isNormalUser = true;
     description = "Tiyash Basu";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-        bat
-        btop
-        eza
-        fastfetch
-        gh
-        grpcurl
-        jq
-        nodejs
-        protobuf
-        puppet-bolt
-        rustup
-        starship
-        tmux
-        zellij
-        zsh-autosuggestions
-        zsh-syntax-highlighting
-        zsh-history-substring-search
-
-        ## neovim plugins
-        black
-        fzf
-        lua-language-server
-        nodePackages.prettier
-        ripgrep
-        stylua
+      bat
+      btop
+      eza
+      fastfetch
+      gh
+      grpcurl
+      jq
+      nodejs
+      protobuf
+      puppet-bolt
+      rustup
+      starship
+      tmux
+      zellij
+      zsh-autosuggestions
+      zsh-syntax-highlighting
+      zsh-history-substring-search
+      ## neovim plugin
+      blac
+      fz
+      lu-language-server
+      noePackages.prettier
+      ripgrep
+      stylua
     ];
   };
 
   # Set default user shell to zsh
   users.defaultUserShell = pkgs.zsh;
-
-  # Install zsh
-  programs.zsh.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # Install neovim
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
