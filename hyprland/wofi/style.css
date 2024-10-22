@@ -1,0 +1,46 @@
+@import "mocha.css";
+
+#window {
+  margin: 5px;
+  border: 1px solid #45475a; /* surface1 */
+  border-radius: 0.3rem;
+}
+
+#outer-box {
+  margin: 10px;
+  background-color: #313244; /* surface0 */
+}
+
+#inner-box {
+  background-color: #313244; /* surface0 */
+}
+
+#input {
+  margin: 5px 5px 10px 5px;
+  border: 1px solid #b4befe; /* lavender */
+  border-radius: 0.3rem;
+  background-color: #45475a; /* surface1 */
+  color: #cdd6f4; /* text */
+}
+
+#scroll {
+  margin: 1px;
+  border: 0px #b4befe; /* lavender */
+  border-radius: 0.3rem;
+  padding: 1px;
+  background-color: #45475a; /* surface1 */
+}
+
+#entry:selected {
+  border-radius: 0.3rem;
+  background-color: #74c7ec; /* sapphire */
+}
+
+#text:selected {
+  color: #313244; /* surface0 */
+}
+
+#text {
+  margin: 5px;
+  color: #74c7ec; /* sapphire */
+}

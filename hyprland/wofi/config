@@ -1,0 +1,6 @@
+mode = drun
+width = 300
+prompt = type to search ...
+allow_images = true
+alow_markup = true
+image_size = 24

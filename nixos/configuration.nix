@@ -74,6 +74,7 @@ in
     konsole
     oxygen
     plasma-browser-integration
+    spectacle
   ];
 
   # Enable the X11 windowing system.
@@ -106,6 +107,10 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Install Hyprland
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
   };
 
   # Install zsh
@@ -145,10 +150,10 @@ in
       zsh-syntax-highlighting
       zsh-history-substring-search
       ## neovim plugin
-      blac
-      fz
-      lu-language-server
-      noePackages.prettier
+      black
+      fzf
+      lua-language-server
+      nodePackages.prettier
       ripgrep
       stylua
     ];
@@ -164,6 +169,7 @@ in
     chromium
     fira-code-nerdfont
     firefox
+    font-awesome
     gcc
     gdb
     gitFull
@@ -178,8 +184,21 @@ in
     usbutils
     wl-clipboard
 
+    ## Hyprland packages
+    hyprcursor
+    hypridle
+    hyprlock
+		hyprpaper
+    hyprshot
+    libnotify
+    pavucontrol
+    swaynotificationcenter
+    wofi
+    xcur2png
+
     ## unstable channel packages
     unstable.kitty
+    unstable.waybar
 
     ## If this is in a UTM VM:
     # spice-vdagent

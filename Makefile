@@ -14,12 +14,15 @@ _gpg := $(shell gpg --list-secret-keys --keyid-format=long | grep -B2 $(_email) 
 # output directory
 _out_dir := $(HOME)
 
-.PHONY: all setup-nixos setup-zsh setup-alacritty setup-kitty setup-tmux setup-zellij setup-fastfetch setup-ssh setup-nvim setup-zed setup-vscode setup-git-user setup-git-commit-template setup-git
+.PHONY: all setup-nixos setup-hypr setup-zsh setup-alacritty setup-kitty setup-tmux setup-zellij setup-fastfetch setup-ssh setup-nvim setup-zed setup-vscode setup-git-user setup-git-commit-template setup-git
 
 # System setup
 
 setup-nixos:
 	cp nixos/configuration.nix /etc/nixos/configuration.nix
+
+setup-hypr:
+	cp -r hyprland/* $(_out_dir)/.config/
 
 # Terminal setup
 
