@@ -48,6 +48,7 @@ setup-zellij:
 	cp -r zellij $(_out_dir)/.config/
 
 setup-fastfetch:
+	mkdir -p $(_out_dir)/.config/fastfetch
 	cp fastfetch/config.jsonc $(_out_dir)/.config/fastfetch/config.jsonc
 
 # SSH setup
