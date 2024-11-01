@@ -13,7 +13,7 @@
 }
 
 #workspaces {
-  margin: 5px 0rem 5px 5px;
+  margin: 1px 0rem 1px 5px;
   border-radius: 4px;
   background-color: @surface1;
 }
@@ -32,7 +32,7 @@
 }
 
 #window {
-  margin: 5px 0rem 5px 0rem;
+  margin: 1px 0rem 1px 0rem;
   padding: 0rem 5px 0rem 5px;
   border-radius: 4px;
   color: @text;
@@ -47,7 +47,7 @@
 #memory,
 #idle_inhibitor,
 #custom-power {
-  margin: 5px 5px 5px 0rem;
+  margin: 1px 5px 1px 0rem;
   padding: 0rem 5px 0rem 5px;
   border-radius: 4px;
   background-color: @surface1;
