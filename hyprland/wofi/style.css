@@ -1,5 +1,9 @@
 @import "mocha.css";
 
+* {
+  font-family: Fira Code Nerd Font;
+}
+
 #window {
   margin: 5px;
   border: 1px solid #45475a; /* surface1 */
@@ -26,10 +30,8 @@
 
 #scroll {
   margin: 1px;
-  border: 0px #b4befe; /* lavender */
-  border-radius: 0.3rem;
   padding: 1px;
-  background-color: #45475a; /* surface1 */
+  background-color: #313244; /* surface0 */
 }
 
 #entry:selected {

@@ -1,6 +1,7 @@
 * {
   all: unset;
-  font-size: 14px;
+  font-size: 10px;
+  font-family: "Fira Code Nerd Font";
   /* font-family: "Ubuntu Nerd Font"; */
   transition: 200ms;
 }

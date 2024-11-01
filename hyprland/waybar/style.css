@@ -1,30 +1,31 @@
 @import "mocha.css";
 
 * {
-  font-family: FantasqueSansMono Nerd Font;
+  font-family: Fira Code Nerd Font;
   font-size: 12px;
   min-height: 0;
 }
 
 #waybar {
-  background: transparent;
+  background: @surface0;
   color: @text;
-  margin: 2px 2px;
 }
 
 #workspaces {
-  margin: 1px 0rem 1px 5px;
-  border-radius: 4px;
-  background-color: @surface1;
+  background-color: @surface0;
+  border-radius: 0px;
 }
 
 #workspaces button {
   color: @lavender;
+  border: 1px solid @surface1;
+  border-radius: 0px;
 }
 
 #workspaces button.active {
-  color: @sky;
-  background-color: @surface2;
+  color: @peach;
+  border: 1px solid @peach;
+  border-radius: 0px;
 }
 
 #workspaces button:hover {
@@ -32,11 +33,8 @@
 }
 
 #window {
-  margin: 1px 0rem 1px 0rem;
-  padding: 0rem 5px 0rem 5px;
-  border-radius: 4px;
   color: @text;
-  background-color: @surface1;
+  background-color: transparent;
 }
 
 #tray,
@@ -47,10 +45,8 @@
 #memory,
 #idle_inhibitor,
 #custom-power {
-  margin: 1px 5px 1px 0rem;
   padding: 0rem 5px 0rem 5px;
-  border-radius: 4px;
-  background-color: @surface1;
+  background-color: @surface0;
 }
 
 #cpu {
@@ -86,5 +82,5 @@
 }
 
 #clock {
-  color: @blue;
+  color: @sky;
 }
