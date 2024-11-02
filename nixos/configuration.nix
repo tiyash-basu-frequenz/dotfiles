@@ -123,6 +123,14 @@ in
     vimAlias = true;
   };
 
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -132,7 +140,6 @@ in
     description = "Tiyash Basu";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      bat
       btop
       eza
       fastfetch
@@ -145,7 +152,6 @@ in
       rustup
       starship
       tmux
-      zellij
       zsh-autosuggestions
       zsh-syntax-highlighting
       zsh-history-substring-search
@@ -175,6 +181,7 @@ in
     gitFull
     gnumake
     gnupg
+    kitty
     libgcc
     nano
     nix-index
@@ -188,30 +195,19 @@ in
     hyprcursor
     hypridle
     hyprlock
-		hyprpaper
+    hyprpaper
     hyprshot
     libnotify
     pavucontrol
     swaynotificationcenter
+    waybar
     wofi
     xcur2png
-
-    ## unstable channel packages
-    unstable.kitty
-    unstable.waybar
 
     ## If this is in a UTM VM:
     # spice-vdagent
     # virtiofsd
   ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
 
   # Start chromium with wayland support
   nixpkgs.config.chromium = {
