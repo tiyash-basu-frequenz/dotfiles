@@ -18,6 +18,7 @@ vim.g.mapleader = " "
 require("lazy").setup("lazy-plugins")
 
 require("local/vim-options")
+require("local/vim-filetypes")
 require("local/vim-keymaps")
 require("local/on-save-format")
 require("local/on-save-remove-trailing-whitespaces")

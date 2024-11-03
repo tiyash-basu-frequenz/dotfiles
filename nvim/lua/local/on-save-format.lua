@@ -5,8 +5,11 @@ local excluded_filetypes = { "json", "markdown", "txt" }
 local filetype_settings = {
     make = {
         expandtab = false, -- Use hard tabs for Makefiles
-        tabstop = 4,       -- A tab character is 8 spaces wide
-        shiftwidth = 4,    -- Indentation is 8 spaces wide
+        tabstop = 4, -- A tab character is 8 spaces wide
+        shiftwidth = 4, -- Indentation is 8 spaces wide
+    },
+    nix = {
+        shiftwidth = 2, -- Indentation is 2 spaces wide
     },
     -- You can add more filetypes here if needed, e.g.
     -- lua = { expandtab = true, tabstop = 4, shiftwidth = 4 }
