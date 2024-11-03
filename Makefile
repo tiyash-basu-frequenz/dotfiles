@@ -21,11 +21,11 @@ _out_dir := $(HOME)
 nixos:
 	cp nixos/configuration.nix /etc/nixos/configuration.nix
 
-nixos-switch:
-	nixos-rebuild switch
-
-nixos-test:
+nixos-test: nixos
 	nixos-rebuild test
+
+nixos-switch: nixos-test
+	nixos-rebuild switch
 
 nixos-clean:
 	nix-collect-garbage --delete-old
