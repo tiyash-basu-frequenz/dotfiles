@@ -14,74 +14,74 @@ _gpg := $(shell gpg --list-secret-keys --keyid-format=long | grep -B2 $(_email) 
 # output directory
 _out_dir := $(HOME)
 
-.PHONY: all setup-nixos setup-nixos-switch setup-nixos-test setup-nixos-clean setup-hypr setup-zsh setup-alacritty setup-kitty setup-tmux setup-zellij setup-fastfetch setup-ssh setup-nvim setup-zed setup-vscode setup-git-user setup-git-commit-template setup-git
+.PHONY: nixos nixos-switch nixos-test nixos-clean hypr zsh alacritty kitty tmux zellij fastfetch ssh nvim zed vscode git-user git-commit-template git
 
 # System setup
 
-setup-nixos:
+nixos:
 	cp nixos/configuration.nix /etc/nixos/configuration.nix
 
-setup-nixos-switch:
+nixos-switch:
 	nixos-rebuild switch
 
-setup-nixos-test:
+nixos-test:
 	nixos-rebuild test
 
-setup-nixos-clean:
+nixos-clean:
 	nix-collect-garbage --delete-old
 
-setup-hypr:
+hypr:
 	cp -r hyprland/* $(_out_dir)/.config/
 
 # Terminal setup
 
-setup-zsh:
+zsh:
 	cp zsh/zshrc $(_out_dir)/.zshrc
 	@echo "Check plugins in the zsh directory here"
 
-setup-alacritty:
+alacritty:
 	mkdir -p ~/.config/alacritty/themes
 	-git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 	cp alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 
-setup-kitty:
+kitty:
 	cp kitty/* $(_out_dir)/.config/kitty/
 
-setup-tmux:
+tmux:
 	mkdir -p $(_out_dir)/.tmux/plugins
 	-git clone https://github.com/tmux-plugins/tpm $(_out_dir)/.tmux/plugins/tpm
 	cp tmux/$(_system)/tmux.conf $(_out_dir)/.tmux.conf
 	@echo "Install tmux plugins by pressing prefix + I"
 
-setup-zellij:
+zellij:
 	cp -r zellij $(_out_dir)/.config/
 
-setup-fastfetch:
+fastfetch:
 	mkdir -p $(_out_dir)/.config/fastfetch
 	cp fastfetch/config.jsonc $(_out_dir)/.config/fastfetch/config.jsonc
 
 # SSH setup
 
-setup-ssh:
+ssh:
 	cp ssh/config $(_out_dir)/.ssh/config
 
 # Editor setup
 
-setup-nvim:
+nvim:
 	mkdir -p $(_out_dir)/.config/nvim
 	cp -r nvim $(_out_dir)/.config/
 
-setup-zed:
+zed:
 	mkdir -p $(_out_dir)/.config/zed
 	cp zed/settings.json $(_out_dir)/.config/zed/settings.json
 
-setup-vscode:
+vscode:
 	cp vscode/settings.json $(_out_dir)/Library/Application\ Support/Code/User/settings.json
 	cp vscode/extensions.json $(_out_dir)/.vscode/extensions/extensions.json
 
 # Git setup
 
-setup-git-user:
+git-user:
 	git config --global user.name $(_name)
 	git config --global user.email $(_email)
 	git config --global core.editor nvim
@@ -94,9 +94,9 @@ setup-git-user:
 	gpg --armor --export $(_gpg)
 	@echo "### DO NOT COPY FROM THIS LINE ONWARDS ###"
 
-setup-git-commit-template:
+git-commit-template:
 	cp git/gitmessage ~/.gitmessage
 	git config --global commit.template ~/.gitmessage
 
-setup-git: setup-git-user setup-git-commit-template
+git: git-user git-commit-template
 
