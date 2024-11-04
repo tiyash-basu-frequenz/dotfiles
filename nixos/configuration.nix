@@ -12,9 +12,9 @@ in
   # Imports
   # ----------------------------------------------------------------------------
   imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  [
+    ./hardware-configuration.nix
+  ];
 
   # ----------------------------------------------------------------------------
   # Additional Hardware Configuration
@@ -63,6 +63,32 @@ in
   # X11 configuration - Disable X11 server
   services.xserver.enable = false;
 
+  # Enable gdm with Wayland
+  # Note that GDM _needs_ X11 to work, so you can't disable X11 and use GDM.
+  # services.xserver.displayManager.gdm = {
+  #   enable = true;
+  #   wayland = true;
+  # };
+
+  # Enable Gnome Desktop Environment
+  services.xserver.desktopManager.gnome.enable = true;
+  programs.dconf.enable = true;
+  environment.gnome.excludePackages = with pkgs.gnome; [
+    epiphany
+    gnome-calendar
+    gnome-characters
+    gnome-contacts
+    gnome-control-center
+    gnome-font-viewer
+    gnome-maps
+    gnome-music
+    gnome-system-monitor
+    gnome-terminal
+    gnome-weather
+    pkgs.gnome-tour
+    pkgs.gnome-connections
+  ];
+
   # Enable SDDM with Wayland
   services.displayManager.sddm = {
     enable = true;
@@ -70,14 +96,14 @@ in
   };
 
   # Enable Plasma Desktop Environment
-  services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = with pkgs.libsForQt5; [
-    elisa
-    kate
-    konsole
-    oxygen
-    plasma-browser-integration
-  ];
+  # services.desktopManager.plasma6.enable = true;
+  # environment.plasma6.excludePackages = with pkgs.libsForQt5; [
+  #   elisa
+  #   kate
+  #   konsole
+  #   oxygen
+  #   plasma-browser-integration
+  # ];
 
   # Enable Hyprland
   programs.hyprland = {
