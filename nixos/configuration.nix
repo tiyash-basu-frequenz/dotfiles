@@ -74,19 +74,27 @@ in
   services.xserver.desktopManager.gnome.enable = true;
   programs.dconf.enable = true;
   environment.gnome.excludePackages = with pkgs.gnome; [
-    epiphany
+    baobab # GNOME Disk Usage Analyzer
+    cheese # GNOME Webcam
+    epiphany # GNOME Web
+    geary # GNOME Mail
     gnome-calendar
     gnome-characters
     gnome-contacts
     gnome-control-center
     gnome-font-viewer
+    gnome-logs
     gnome-maps
     gnome-music
     gnome-system-monitor
     gnome-terminal
     gnome-weather
+    pkgs.gedit # GNOME Text Editor
     pkgs.gnome-tour
     pkgs.gnome-connections
+    seahorse # GNOME Passwords and Keys
+    totem # GNOME Videos
+    yelp # GNOME help
   ];
 
   # Enable SDDM with Wayland
@@ -138,12 +146,21 @@ in
   };
 
   # Enable SSH
+  programs.ssh.startAgent = true;
   services.openssh.enable = true;
 
   # ----------------------------------------------------------------------------
   # Printing Services
   # ----------------------------------------------------------------------------
   services.printing.enable = true;
+
+  # ----------------------------------------------------------------------------
+  # GPG Configuration
+  # ----------------------------------------------------------------------------
+  programs.gnupg.agent = {
+    enable = true;
+    # enableSSHSupport = true; # Enable SSH support
+  };
 
   # ----------------------------------------------------------------------------
   # System Packages
@@ -224,6 +241,7 @@ in
       gh
       grpcurl
       jq
+      libreoffice-qt
       nodejs
       protobuf
       puppet-bolt
@@ -243,5 +261,4 @@ in
       stylua
     ];
   };
-
 }
