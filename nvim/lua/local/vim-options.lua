@@ -20,3 +20,6 @@ vim.cmd("set colorcolumn=80,100,120")
 -- enable file type detection
 vim.cmd("filetype off")
 vim.cmd("filetype plugin indent on")
+
+-- enable copilot for git commit messages
+vim.g.copilot_filetypes = { gitcommit = true }
