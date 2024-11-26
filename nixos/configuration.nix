@@ -197,11 +197,13 @@ in
     waybar
     wofi
     xcur2png
+
+    # neovim
+    unstable.neovim
   ];
 
-  # Install neovim
+  # Configure neovim aliases
   programs.neovim = {
-    enable = true;
     viAlias = true;
     vimAlias = true;
   };
