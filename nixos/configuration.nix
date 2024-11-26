@@ -82,7 +82,6 @@ in
     gnome-characters
     gnome-contacts
     gnome-control-center
-    gnome-font-viewer
     gnome-logs
     gnome-maps
     gnome-music
@@ -168,9 +167,7 @@ in
   environment.systemPackages = with pkgs; [
     alacritty
     chromium
-    fira-code-nerdfont
     firefox
-    font-awesome
     gcc
     gdb
     gitFull
@@ -219,6 +216,37 @@ in
   # ];
 
   # ----------------------------------------------------------------------------
+  # Font Configuration
+  # ----------------------------------------------------------------------------
+
+  fonts.packages = with pkgs; [
+    font-awesome
+    fira-code-nerdfont
+    noto-fonts
+    open-sans
+  ];
+
+  fonts.fontconfig = {
+    enable = true;
+
+    defaultFonts = {
+      monospace = ["FiraCode Nerd Font"];
+      sansSerif = ["Noto Sans"];
+      serif = ["Noto Serif"];
+    };
+
+    hinting = {
+      enable = true;
+      style = "slight";
+    };
+
+    subpixel = {
+      lcdfilter = "none";
+      rgba = "rgb";
+    };
+  };
+
+  # ----------------------------------------------------------------------------
   # Podman Configuration
   # ----------------------------------------------------------------------------
   virtualisation.containers.enable = true;
@@ -241,6 +269,7 @@ in
       eza
       fastfetch
       gh
+      go
       grpcurl
       jq
       libreoffice-qt
@@ -257,6 +286,8 @@ in
       # Neovim plugins
       black
       fzf
+      gopls
+      isort
       lua-language-server
       nodePackages.prettier
       ripgrep
