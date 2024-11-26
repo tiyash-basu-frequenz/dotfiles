@@ -6,6 +6,20 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local lspconfig = require("lspconfig")
 
+            lspconfig.gopls.setup({
+                -- remove this line if you have gopls installed by Mason
+                cmd = { "gopls" },
+                filetypes = { "go" },
+                capabilities = capabilities,
+            })
+
+            lspconfig.lua_ls.setup({
+                -- remove this line if you have lua-language-server installed by Mason
+                cmd = { "lua-language-server" },
+                filetypes = { "lua" },
+                capabilities = capabilities,
+            })
+
             lspconfig.rust_analyzer.setup({
                 -- remove this line if you have rust-analyzer installed by Mason
                 cmd = { "rust-analyzer" },
@@ -16,15 +30,14 @@ return {
                         cargo = {
                             targetDir = "target/rust_analyzer",
                         },
+                        imports = {
+                            granularity = {
+                                group = "module",
+                            },
+                            prefix = "self",
+                        },
                     },
                 },
-            })
-
-            lspconfig.lua_ls.setup({
-                -- remove this line if you have lua-language-server installed by Mason
-                cmd = { "lua-language-server" },
-                filetypes = { "lua" },
-                capabilities = capabilities,
             })
         end,
     },
