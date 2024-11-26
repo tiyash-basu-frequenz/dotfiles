@@ -48,7 +48,7 @@ alacritty:
 	cp alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 kitty:
-	cp kitty/* $(_out_dir)/.config/kitty/
+	cp kitty/$(_system)/* $(_out_dir)/.config/kitty/
 
 tmux:
 	mkdir -p $(_out_dir)/.tmux/plugins
