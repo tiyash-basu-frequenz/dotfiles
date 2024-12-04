@@ -167,7 +167,6 @@ in
   environment.systemPackages = with pkgs; [
     alacritty
     chromium
-    firefox
     gcc
     gdb
     gitFull
@@ -182,6 +181,7 @@ in
     unzip
     usbutils
     wl-clipboard
+
     # Hyprland packages
     hyprcursor
     hypridle
@@ -208,12 +208,6 @@ in
   nixpkgs.config.chromium = {
     commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
   };
-
-  # Add any packages you need from the unstable channel here if necessary.
-  # E.g., to install a package from the unstable channel:
-  # environment.systemPackages = with pkgs; [
-  #   unstable.packageName
-  # ];
 
   # ----------------------------------------------------------------------------
   # Font Configuration
@@ -272,6 +266,7 @@ in
       go
       grpcurl
       jq
+      lazygit
       libreoffice-qt
       nodejs
       protobuf
