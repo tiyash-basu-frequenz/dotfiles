@@ -267,7 +267,7 @@ in
       grpcurl
       jq
       lazygit
-      libreoffice-qt
+      # libreoffice-qt # Build is failing
       nodejs
       protobuf
       puppet-bolt
