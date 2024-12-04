@@ -26,7 +26,7 @@ in
   # ----------------------------------------------------------------------------
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_11;
 
   # ----------------------------------------------------------------------------
   # Basic NixOS Configuration
