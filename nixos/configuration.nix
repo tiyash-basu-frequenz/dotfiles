@@ -32,7 +32,7 @@ in
   # Basic NixOS Configuration
   # ----------------------------------------------------------------------------
   nixpkgs.config.allowUnfree = true; # Allow unfree packages
-  system.stateVersion = "24.05"; # NixOS release version
+  system.stateVersion = "24.11"; # NixOS release version
 
   # ----------------------------------------------------------------------------
   # Locale Settings
