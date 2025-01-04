@@ -180,6 +180,7 @@ in
     python3Full
     unzip
     usbutils
+    wireguard-tools
     wl-clipboard
 
     # Hyprland packages
