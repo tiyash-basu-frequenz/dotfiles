@@ -14,7 +14,7 @@ _gpg := $(shell gpg --list-secret-keys --keyid-format=long | grep -B2 $(_email) 
 # output directory
 _out_dir := $(HOME)
 
-.PHONY: nixos nixos-update nixos-switch nixos-test nixos-clean hypr zsh alacritty kitty tmux zellij fastfetch ssh nvim zed vscode git-user git-commit-template git
+.PHONY: nixos nixos-update nixos-switch nixos-test nixos-clean hypr zsh alacritty ghostty kitty tmux zellij fastfetch ssh nvim zed vscode git-user git-commit-template git
 
 # System setup
 
@@ -46,6 +46,10 @@ alacritty:
 	mkdir -p ~/.config/alacritty/themes
 	-git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 	cp alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+
+ghostty:
+	mkdir -p ~/.config/ghostty
+	cp ghostty/$(_system)/* ~/.config/ghostty/
 
 kitty:
 	cp kitty/$(_system)/* $(_out_dir)/.config/kitty/

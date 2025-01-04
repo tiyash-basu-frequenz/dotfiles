@@ -195,7 +195,8 @@ in
     wofi
     xcur2png
 
-    # neovim
+    # Unstable packages
+    unstable.ghostty
     unstable.neovim
   ];
 
