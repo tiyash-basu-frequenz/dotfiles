@@ -1,3 +1,4 @@
+[general]
 import = [
     "~/.config/alacritty/themes/themes/catppuccin_macchiato.toml"
 ]
@@ -13,6 +14,6 @@ startup_mode = "Maximized"
 dynamic_title = true
 dynamic_padding = true
 
-[shell]
+[terminal.shell]
 program = "zsh"
 args = ["-l", "-c", "tmux"]
