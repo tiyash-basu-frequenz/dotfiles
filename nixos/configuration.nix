@@ -280,6 +280,7 @@ in
       zsh-autosuggestions
       zsh-syntax-highlighting
       zsh-history-substring-search
+      zsh-z
       # Neovim plugins
       black
       fzf
