@@ -28,6 +28,8 @@ fi
 source ${_zsh_plugins_dir}/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${_zsh_plugins_dir}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ${_zsh_plugins_dir}/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ${_zsh_plugins_dir}/zsh-z/zsh-z.plugin.zsh
+
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 bindkey '^R' history-incremental-search-backward
