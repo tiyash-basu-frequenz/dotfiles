@@ -179,15 +179,19 @@ in
   environment.systemPackages = with pkgs; [
     alacritty
     chromium
+    dmidecode
     gcc
     gdb
     gitFull
     gnumake
     gnupg
+    hwinfo
     kitty
     libgcc
+    lshw
     nano
     nix-index
+    # nvtopPackages.full # Uncomment if you are installing nixos natively in a system with NVIDIA GPU.
     podman-tui
     python3Full
     unzip
@@ -196,6 +200,7 @@ in
     wl-clipboard
 
     # Hyprland packages
+    # brightnessctl # Uncomment if you are installing nixos natively.
     hyprcursor
     hypridle
     hyprlock
