@@ -30,6 +30,9 @@ return {
                         cargo = {
                             targetDir = "target/rust_analyzer",
                         },
+                        diagnostics = {
+                            enable = true,
+                        },
                         imports = {
                             granularity = {
                                 group = "module",
