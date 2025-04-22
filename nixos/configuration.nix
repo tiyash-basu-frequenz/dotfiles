@@ -52,6 +52,18 @@ in
   };
 
   # ----------------------------------------------------------------------------
+  # Time Synchronization
+  # ----------------------------------------------------------------------------
+  # Enable Chrony for time synchronization
+  services.chrony = {
+    enable = true;
+    servers = [ "0.pool.ntp.org" "1.pool.ntp.org" "2.pool.ntp.org" ];
+    extraConfig = ''
+      makestep 1.0 3
+    '';
+  };
+
+  # ----------------------------------------------------------------------------
   # Shell Configuration
   # ----------------------------------------------------------------------------
   programs.zsh.enable = true; # Enable Zsh shell
