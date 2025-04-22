@@ -19,7 +19,7 @@ in
   # ----------------------------------------------------------------------------
   # Additional Hardware Configuration
   # ----------------------------------------------------------------------------
-  hardware.opengl.enable = true; # Enable OpenGL
+  hardware.graphics.enable = true; # Enable OpenGL
 
   # ----------------------------------------------------------------------------
   # Bootloader Configuration
@@ -73,7 +73,7 @@ in
   # Enable Gnome Desktop Environment
   services.xserver.desktopManager.gnome.enable = true;
   programs.dconf.enable = true;
-  environment.gnome.excludePackages = with pkgs.gnome; [
+  environment.gnome.excludePackages = with pkgs; [
     baobab # GNOME Disk Usage Analyzer
     cheese # GNOME Webcam
     epiphany # GNOME Web
