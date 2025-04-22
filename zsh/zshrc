@@ -93,6 +93,9 @@ PATH=$HOME/Dev/fqz/dev_containers/rust_arm64_host/scripts:$PATH
 PATH=$HOME/Dev/fqz/dev_containers/go/scripts:$PATH
 PATH=$HOME/Dev/fqz/dev_containers/python/scripts:$PATH
 
+# More setup
+CARGO_NET_GIT_FETCH_WITH_CLI=true
+
 function validate_args_eq() {
     expected_num=$1
     actual_num=$2
