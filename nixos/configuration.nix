@@ -152,7 +152,7 @@ in
     hostFiles = [
       (pkgs.writeTextFile {
         name = "etc_hosts";
-        text = builtins.readFile /home/tiyash/etc_hosts;
+        text = builtins.readFile /home/tiyash/Dev/fqz/system/etc_hosts;
       })
     ];
   };
