@@ -20,6 +20,7 @@ _out_dir := $(HOME)
 
 nixos:
 	cp nixos/configuration.nix /etc/nixos/configuration.nix
+	cp nixos/wireguard.nix /etc/nixos/wireguard.nix
 
 nixos-update: nixos
 	nix-channel --update
