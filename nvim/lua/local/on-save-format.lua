@@ -1,5 +1,5 @@
 -- List of filetypes where you want to disable auto-formatting
-local excluded_filetypes = { "json", "markdown", "txt", "yaml" }
+local excluded_filetypes = { "json", "txt" }
 
 -- Table of specific settings for filetypes
 local filetype_settings = {
