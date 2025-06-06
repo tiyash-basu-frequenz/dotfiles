@@ -134,7 +134,7 @@ in
   # ----------------------------------------------------------------------------
   # Sound Management Configuration with Pipewire
   # ----------------------------------------------------------------------------
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -187,7 +187,6 @@ in
     gnumake
     gnupg
     hwinfo
-    kitty
     libgcc
     lshw
     nano
@@ -195,10 +194,22 @@ in
     # nvtopPackages.full # Uncomment if you are installing nixos natively in a system with NVIDIA GPU.
     podman-tui
     python3Full
+    pkg-config
+    systemd
     unzip
     usbutils
     wireguard-tools
     wl-clipboard
+    zsh
+
+    # # Gnome packages
+    # evince
+    # gnome-calculator
+    # gnome-clocks
+    # gnome-font-viewer
+    # gparted
+    # nautilus
+    # simple-scan
 
     # Hyprland packages
     # brightnessctl # Uncomment if you are installing nixos natively.
@@ -235,7 +246,7 @@ in
 
   fonts.packages = with pkgs; [
     font-awesome
-    fira-code-nerdfont
+    nerd-fonts.fira-code
     noto-fonts
     open-sans
   ];
@@ -291,7 +302,11 @@ in
       nodejs
       protobuf
       puppet-bolt
-      rustup
+      # rust
+      rustc
+      cargo
+      rust-analyzer
+      rustfmt
       # Terminal plugins
       starship
       tmux
