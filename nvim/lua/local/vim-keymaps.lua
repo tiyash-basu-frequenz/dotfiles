@@ -54,4 +54,12 @@ vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { desc = "Previe
 local refactor = require("refactor")
 vim.keymap.set("n", "<F3>", refactor.text_replace_word, { desc = "Replace word" })
 vim.keymap.set("v", "<F3>", refactor.text_replace_selection, { desc = "Replace selection" })
-vim.keymap.set("n", "<F2>", refactor.lsp_rename_symbol, { desc = "Rename symbol" })
+vim.keymap.set("n", "<F5>", refactor.lsp_rename_symbol, { desc = "Rename symbol" })
+
+-- shortcuts - Copilot
+vim.keymap.set("i", "<C-a>", "copilot#Accept(\"\\<CR>\")", {
+    expr = true,
+    replace_keycodes = false,
+    desc = "Accept Copilot suggestion",
+})
+vim.g.copilot_no_tab_map = true
