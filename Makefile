@@ -25,11 +25,11 @@ nixos:
 nixos-update: nixos
 	nix-channel --update
 
-nixos-test: nixos-update
-	nixos-rebuild test
+nixos-test:
+	nixos-rebuild --upgrade test
 
-nixos-switch: nixos-test
-	nixos-rebuild switch
+nixos-switch:
+	nixos-rebuild --upgrade switch
 
 nixos-clean:
 	nix-collect-garbage --delete-old
