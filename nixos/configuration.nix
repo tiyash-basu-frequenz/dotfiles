@@ -73,19 +73,25 @@ in
   # ----------------------------------------------------------------------------
   # Desktop Environment and Display Manager
   # ----------------------------------------------------------------------------
+
+  # Enable SDDM with Wayland
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
+
   # X11 configuration - Disable X11 server
   services.xserver.enable = false;
 
-  # Enable gdm with Wayland
-  # Note that GDM _needs_ X11 to work, so you can't disable X11 and use GDM.
-  # services.xserver.displayManager.gdm = {
-  #   enable = true;
-  #   wayland = true;
-  # };
+  # Enable Hyprland
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
   # Enable Gnome Desktop Environment
-  services.xserver.desktopManager.gnome.enable = true;
   programs.dconf.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
   environment.gnome.excludePackages = with pkgs; [
     baobab # GNOME Disk Usage Analyzer
     cheese # GNOME Webcam
@@ -109,12 +115,6 @@ in
     yelp # GNOME help
   ];
 
-  # Enable SDDM with Wayland
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
-
   # Enable Plasma Desktop Environment
   # services.desktopManager.plasma6.enable = true;
   # environment.plasma6.excludePackages = with pkgs.libsForQt5; [
@@ -124,12 +124,6 @@ in
   #   oxygen
   #   plasma-browser-integration
   # ];
-
-  # Enable Hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
 
   # ----------------------------------------------------------------------------
   # Sound Management Configuration with Pipewire
