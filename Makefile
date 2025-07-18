@@ -77,6 +77,7 @@ ssh:
 
 nvim:
 	mkdir -p $(_out_dir)/.config/nvim
+	rm -rf $(_out_dir)/.config/nvim/*
 	cp -r nvim $(_out_dir)/.config/
 
 zed:
