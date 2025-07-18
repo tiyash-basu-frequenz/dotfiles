@@ -190,6 +190,7 @@ in
     python3Full
     pkg-config
     systemd
+    udev
     unzip
     usbutils
     wireguard-tools
@@ -204,6 +205,12 @@ in
     # gparted
     # nautilus
     # simple-scan
+
+    # rust
+    rustc
+    cargo
+    rust-analyzer
+    rustfmt
 
     # Hyprland packages
     # brightnessctl # Uncomment if you are installing nixos natively.
@@ -296,11 +303,6 @@ in
       nodejs
       protobuf
       puppet-bolt
-      # rust
-      rustc
-      cargo
-      rust-analyzer
-      rustfmt
       # Terminal plugins
       starship
       tmux
@@ -310,11 +312,13 @@ in
       zsh-z
       # Neovim plugins
       black
+      codespell
       fzf
       gopls
       isort
       lua-language-server
       nodePackages.prettier
+      protols
       ripgrep
       stylua
     ];
