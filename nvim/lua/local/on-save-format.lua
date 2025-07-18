@@ -1,5 +1,5 @@
 -- List of filetypes where you want to disable auto-formatting
-local excluded_filetypes = { "json", "txt" }
+local excluded_filetypes = { "json", "markdown", "md", "txt", "yaml", "yml" }
 
 -- Table of specific settings for filetypes
 local filetype_settings = {
@@ -10,6 +10,11 @@ local filetype_settings = {
     },
     nix = {
         shiftwidth = 2, -- Indentation is 2 spaces wide
+    },
+    proto = {
+        expandtab = true, -- Use spaces for indentation
+        tabstop = 2,      -- A tab character is 2 spaces wide
+        shiftwidth = 2,   -- Indentation is 2 spaces wide
     },
     -- You can add more filetypes here if needed, e.g.
     -- lua = { expandtab = true, tabstop = 4, shiftwidth = 4 }
