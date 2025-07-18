@@ -43,7 +43,7 @@ return {
                 },
             })
 
-            lspconfig.protocols.setup({})
+            lspconfig.protols.setup({})
         end,
     },
     {
