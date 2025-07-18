@@ -57,7 +57,7 @@ vim.keymap.set("v", "<F3>", refactor.text_replace_selection, { desc = "Replace s
 vim.keymap.set("n", "<F5>", refactor.lsp_rename_symbol, { desc = "Rename symbol" })
 
 -- shortcuts - Copilot
-vim.keymap.set("i", "<C-a>", "copilot#Accept(\"\\<CR>\")", {
+vim.keymap.set("i", "<M-`>", "copilot#Accept(\"\\<CR>\")", {
     expr = true,
     replace_keycodes = false,
     desc = "Accept Copilot suggestion",
