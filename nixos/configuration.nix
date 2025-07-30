@@ -67,8 +67,16 @@ in
   # ----------------------------------------------------------------------------
   # Shell Configuration
   # ----------------------------------------------------------------------------
-  programs.zsh.enable = true; # Enable Zsh shell
-  users.defaultUserShell = pkgs.zsh; # Set Zsh as the default shell
+  # Enable fish shell, and use it as the default shell
+  programs.fish.enable = true;
+  programs.fish.shellAliases = {
+    ls = "exa --icons --group-directories-first";
+    ll = "exa -l --icons --group-directories-first";
+    la = "exa -la --icons --group-directories-first";
+    l = "exa -l --icons --group-directories-first";
+    grep = "rg"; # Use ripgrep instead of grep
+  };
+  users.defaultUserShell = pkgs.fish;
 
   # ----------------------------------------------------------------------------
   # Desktop Environment and Display Manager
@@ -88,42 +96,6 @@ in
     enable = true;
     xwayland.enable = true;
   };
-
-  # Enable Gnome Desktop Environment
-  programs.dconf.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  environment.gnome.excludePackages = with pkgs; [
-    baobab # GNOME Disk Usage Analyzer
-    cheese # GNOME Webcam
-    epiphany # GNOME Web
-    geary # GNOME Mail
-    gnome-calendar
-    gnome-characters
-    gnome-contacts
-    gnome-control-center
-    gnome-logs
-    gnome-maps
-    gnome-music
-    gnome-system-monitor
-    gnome-terminal
-    gnome-weather
-    pkgs.gedit # GNOME Text Editor
-    pkgs.gnome-tour
-    pkgs.gnome-connections
-    seahorse # GNOME Passwords and Keys
-    totem # GNOME Videos
-    yelp # GNOME help
-  ];
-
-  # Enable Plasma Desktop Environment
-  # services.desktopManager.plasma6.enable = true;
-  # environment.plasma6.excludePackages = with pkgs.libsForQt5; [
-  #   elisa
-  #   kate
-  #   konsole
-  #   oxygen
-  #   plasma-browser-integration
-  # ];
 
   # ----------------------------------------------------------------------------
   # Sound Management Configuration with Pipewire
@@ -195,16 +167,15 @@ in
     usbutils
     wireguard-tools
     wl-clipboard
-    zsh
 
-    # # Gnome packages
-    # evince
-    # gnome-calculator
-    # gnome-clocks
-    # gnome-font-viewer
-    # gparted
-    # nautilus
-    # simple-scan
+    # Gnome packages
+    evince
+    gnome-calculator
+    gnome-clocks
+    gnome-font-viewer
+    gparted
+    nautilus
+    simple-scan
 
     # rust
     rustc
@@ -304,12 +275,7 @@ in
       protobuf
       puppet-bolt
       # Terminal plugins
-      starship
       tmux
-      zsh-autosuggestions
-      zsh-syntax-highlighting
-      zsh-history-substring-search
-      zsh-z
       # Neovim plugins
       black
       codespell
