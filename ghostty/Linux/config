@@ -20,4 +20,4 @@ gtk-titlebar = false
 auto-update = off
 
 # start tmux by default
-initial-command = "zsh -l -c tmux"
+initial-command = "fish -l -c tmux"

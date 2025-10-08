@@ -39,6 +39,9 @@ hypr:
 
 # Terminal setup
 
+fish:
+	cp -r fish ~/.config/fish
+
 zsh:
 	cp zsh/zshrc $(_out_dir)/.zshrc
 	@echo "Check plugins in the zsh directory here"

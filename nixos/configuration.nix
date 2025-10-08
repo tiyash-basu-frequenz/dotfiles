@@ -70,13 +70,20 @@ in
   # Enable fish shell, and use it as the default shell
   programs.fish.enable = true;
   programs.fish.shellAliases = {
-    ls = "exa --icons --group-directories-first";
-    ll = "exa -l --icons --group-directories-first";
-    la = "exa -la --icons --group-directories-first";
-    l = "exa -l --icons --group-directories-first";
+    gsu = "git submodule update --init --recursive";
+    gru = "git remote update --prune";
     grep = "rg"; # Use ripgrep instead of grep
+    l = "exa -l --icons --group-directories-first";
+    la = "exa -la --icons --group-directories-first";
+    ll = "exa -l --icons --group-directories-first";
+    ls = "exa --icons --group-directories-first";
   };
   users.defaultUserShell = pkgs.fish;
+  # Add fish plugins
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 
   # ----------------------------------------------------------------------------
   # Desktop Environment and Display Manager
