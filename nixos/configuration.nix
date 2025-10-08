@@ -168,6 +168,7 @@ in
     podman-tui
     python3Full
     pkg-config
+    starship
     systemd
     udev
     unzip
