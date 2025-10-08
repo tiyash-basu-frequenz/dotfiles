@@ -184,12 +184,6 @@ in
     nautilus
     simple-scan
 
-    # rust
-    rustc
-    cargo
-    rust-analyzer
-    rustfmt
-
     # Hyprland packages
     # brightnessctl # Uncomment if you are installing nixos natively.
     hyprcursor
@@ -200,6 +194,7 @@ in
     libnotify
     pavucontrol
     swaynotificationcenter
+    unzip
     waybar
     wofi
     xcur2png
@@ -207,6 +202,12 @@ in
     # Unstable packages
     unstable.ghostty
     unstable.neovim
+
+    # rust
+    unstable.cargo
+    unstable.rustc
+    unstable.rustfmt
+    unstable.rust-analyzer
   ];
 
   # Configure neovim aliases
@@ -276,7 +277,9 @@ in
       go
       grpcurl
       jq
+      jujutsu
       lazygit
+      wireshark
       # libreoffice-qt # Build is failing
       nodejs
       protobuf
