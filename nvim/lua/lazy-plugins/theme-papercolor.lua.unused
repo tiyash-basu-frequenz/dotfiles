@@ -1,6 +1,6 @@
 return {
     "NLKNguyen/papercolor-theme",
     config = function()
-        vim.cmd.colorscheme("papercolor")
+        vim.cmd.colorscheme("PaperColor")
     end,
 }
