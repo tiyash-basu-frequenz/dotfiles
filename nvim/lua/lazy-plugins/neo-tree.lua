@@ -6,8 +6,13 @@ return {
         "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
     },
+    lazy = false,
     config = function()
         require("neo-tree").setup({
+            source_selector = {
+                winbar = true,
+                statusline = true,
+            },
             filesystem = {
                 filtered_items = {
                     visible = true,
