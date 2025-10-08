@@ -14,7 +14,7 @@ _gpg := $(shell gpg --list-secret-keys --keyid-format=long | grep -B2 $(_email) 
 # output directory
 _out_dir := $(HOME)
 
-.PHONY: nixos nixos-update nixos-switch nixos-test nixos-clean hypr zsh alacritty ghostty kitty tmux zellij fastfetch ssh nvim zed vscode git-user git-commit-template git
+.PHONY: nixos nixos-update nixos-switch nixos-test nixos-clean hypr zsh alacritty fish ghostty kitty tmux zellij fastfetch ssh nvim zed vscode git-user git-commit-template git
 
 # System setup
 
@@ -40,7 +40,7 @@ hypr:
 # Terminal setup
 
 fish:
-	cp -r fish ~/.config/fish
+	cp -r fish/* ~/.config/fish/
 
 zsh:
 	cp zsh/zshrc $(_out_dir)/.zshrc
