@@ -4,26 +4,28 @@ return {
         lazy = false,
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            local lspconfig = require("lspconfig")
 
-            lspconfig.gopls.setup({
-                -- remove this line if you have gopls installed by Mason
+            -- Configure gopls
+            vim.lsp.config("gopls", {
                 cmd = { "gopls" },
                 filetypes = { "go" },
+                root_markers = { "go.mod", "go.work", ".git" },
                 capabilities = capabilities,
             })
 
-            lspconfig.lua_ls.setup({
-                -- remove this line if you have lua-language-server installed by Mason
+            -- Configure lua_ls
+            vim.lsp.config("lua_ls", {
                 cmd = { "lua-language-server" },
                 filetypes = { "lua" },
+                root_markers = { ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "stylua.toml", ".git" },
                 capabilities = capabilities,
             })
 
-            lspconfig.rust_analyzer.setup({
-                -- remove this line if you have rust-analyzer installed by Mason
+            -- Configure rust_analyzer
+            vim.lsp.config("rust_analyzer", {
                 cmd = { "rust-analyzer" },
                 filetypes = { "rust" },
+                root_markers = { "Cargo.toml", "rust-project.json", ".git" },
                 capabilities = capabilities,
                 settings = {
                     ["rust-analyzer"] = {
@@ -43,7 +45,17 @@ return {
                 },
             })
 
-            lspconfig.protols.setup({})
+            -- Configure protols
+            vim.lsp.config("protols", {
+                cmd = { "protols" },
+                root_markers = { ".git" },
+            })
+
+            -- Enable all configured LSP servers
+            vim.lsp.enable("gopls")
+            vim.lsp.enable("lua_ls")
+            vim.lsp.enable("rust_analyzer")
+            vim.lsp.enable("protols")
         end,
     },
     {
