@@ -206,11 +206,8 @@ in
     unstable.ghostty
     unstable.neovim
 
-    # rust
-    unstable.cargo
-    unstable.rustc
-    unstable.rustfmt
-    unstable.rust-analyzer
+    # rust - add toolchain path to $PATH
+    rustup
   ];
 
   # Configure neovim aliases
