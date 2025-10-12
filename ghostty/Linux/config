@@ -1,7 +1,7 @@
 theme = catppuccin-macchiato
 
 font-family = FiraCode Nerd Font
-font-size = 10
+font-size = 9
 font-feature = -liga
 font-feature = -calt
 font-feature = -dlig
