@@ -131,9 +131,10 @@ in
     ];
   };
 
-  # Enable SSH
+  # Start SSH agent
   programs.ssh.startAgent = true;
-  services.openssh.enable = true;
+  # Disable OpenSSH server, to disable remote SSH login.
+  # services.openssh.enable = true;
 
   # ----------------------------------------------------------------------------
   # Printing Services
