@@ -70,9 +70,10 @@ in
   # Enable fish shell, and use it as the default shell
   programs.fish.enable = true;
   programs.fish.shellAliases = {
-    gsu = "git submodule update --init --recursive";
-    gru = "git remote update --prune";
     grep = "rg"; # Use ripgrep instead of grep
+    gru = "git remote update --prune";
+    gss = "git submodule status";
+    gsu = "git submodule update --init --recursive";
     l = "exa -l --icons --group-directories-first";
     la = "exa -la --icons --group-directories-first";
     ll = "exa -l --icons --group-directories-first";
