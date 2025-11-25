@@ -36,7 +36,6 @@ nixos-clean:
 
 hypr:
 	cp -r hyprland/* $(_out_dir)/.config/
-	mv $(_out_dir)/.config/config.jsonc $(_out_dir)/.config/config
 
 
 # Terminal setup
