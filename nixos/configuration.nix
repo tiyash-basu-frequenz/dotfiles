@@ -6,6 +6,17 @@ let
   # $ nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
   # $ nix-channel --update
   unstable = import <nixos-unstable> {};
+
+  # Wrapper for Obsidian to run with Wayland support
+  obsidianWrapped = pkgs.symlinkJoin {
+    name = "obsidian";
+    paths = [ pkgs.obsidian ];
+    buildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/obsidian \
+        --add-flags "--enable-features=UseOzonePlatform --ozone-platform=wayland"
+    '';
+  };
 in
 {
   # ----------------------------------------------------------------------------
@@ -282,6 +293,8 @@ in
       wireshark
       # libreoffice-qt # Build is failing
       nodejs
+      # Install Obsidian with Wayland support. Look at the top for wrapper definition.
+      obsidianWrapped
       protobuf
       puppet-bolt
       # Terminal plugins
