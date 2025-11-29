@@ -228,6 +228,10 @@ in
     vimAlias = true;
   };
 
+  # Set EDITOR to nvim
+  environment.variables.EDITOR = "nvim";
+
+  # Start chromium with Wayland support
   nixpkgs.config.chromium = {
     commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
   };
