@@ -188,6 +188,7 @@ in
     usbutils
     wireguard-tools
     wl-clipboard
+    yazi
 
     # Gnome packages
     evince
