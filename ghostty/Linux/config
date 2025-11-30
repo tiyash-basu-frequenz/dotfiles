@@ -1,7 +1,7 @@
-theme = catppuccin-macchiato
+theme = Catppuccin Macchiato
 
 font-family = FiraCode Nerd Font
-font-size = 9
+font-size = 12
 font-feature = -liga
 font-feature = -calt
 font-feature = -dlig
@@ -21,3 +21,5 @@ auto-update = off
 
 # start tmux by default
 initial-command = "fish -l -c tmux"
+
+shell-integration-features = ssh-env,ssh-terminfo
