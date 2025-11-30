@@ -2,8 +2,7 @@
 
 # Set ID
 _name := "Tiyash Basu"
-_email := "tiyashbasu@gmail.com"
-# _email := "tiyash.basu@frequenz.com"
+_email := "tiyash.basu@frequenz.com"
 
 # system
 _system := $(shell uname -s)
