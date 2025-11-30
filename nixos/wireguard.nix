@@ -6,11 +6,11 @@
       ips = [
         "fd00:0:0:ffff::11/64"
       ];
-      privateKeyFile = "/home/tiyash/Dev/fqz/wireguard/wg_legacy_private.key";
+      privateKeyFile = "/home/tiyash/Dev/wireguard/wg_legacy_private.key";
       peers = [
         {
           name = "tiyash";
-          presharedKeyFile = "/home/tiyash/Dev/fqz/wireguard/wg_legacy_preshared.key";
+          presharedKeyFile = "/home/tiyash/Dev/wireguard/wg_legacy_preshared.key";
           publicKey = "7L7C1SMHyZm7a8/RyCZ16zNurLSbk3qgbwfAUeF9wDA=";
           allowedIPs = [
             "10.0.10.0/24"
@@ -25,11 +25,11 @@
       ips = [
         "fd00:1:0:ffff::23/64"
       ];
-      privateKeyFile = "/home/tiyash/Dev/fqz/wireguard/wg_vpn_eu_private.key";
+      privateKeyFile = "/home/tiyash/Dev/wireguard/wg_vpn_eu_private.key";
       peers = [
         {
           name = "tiyash";
-          presharedKeyFile = "/home/tiyash/Dev/fqz/wireguard/wg_vpn_eu_preshared.key";
+          presharedKeyFile = "/home/tiyash/Dev/wireguard/wg_vpn_eu_preshared.key";
           publicKey = "vc6nWRrmIu6Kfw0Zsg5OdATBz/jHx7xDSH3ewjTmrC0=";
           allowedIPs = [
             "fd00:1::/48"
