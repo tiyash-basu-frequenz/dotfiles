@@ -13,7 +13,7 @@ _gpg := $(shell gpg --list-secret-keys --keyid-format=long | grep -B2 $(_email) 
 # output directory
 _out_dir := $(HOME)
 
-.PHONY: nixos nixos-update nixos-switch nixos-test nixos-clean hypr zsh alacritty fish ghostty kitty tmux zellij fastfetch ssh nvim zed vscode git-user git-commit-template git
+.PHONY: all nixos nixos-update nixos-test nixos-switch nixos-clean hypr fish ghostty tmux fastfetch ssh nvim git git-user git-commit-template
 
 # System setup
 
@@ -43,21 +43,21 @@ hypr:
 fish:
 	cp -r fish/* ~/.config/fish/
 
-zsh:
-	cp zsh/zshrc $(_out_dir)/.zshrc
-	@echo "Check plugins in the zsh directory here"
-
-alacritty:
-	mkdir -p ~/.config/alacritty/themes
-	-git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
-	cp alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+# zsh:
+# 	cp zsh/zshrc $(_out_dir)/.zshrc
+# 	@echo "Check plugins in the zsh directory here"
+#
+# alacritty:
+# 	mkdir -p ~/.config/alacritty/themes
+# 	-git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+# 	cp alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 ghostty:
 	mkdir -p ~/.config/ghostty
 	cp ghostty/$(_system)/* ~/.config/ghostty/
 
-kitty:
-	cp kitty/$(_system)/* $(_out_dir)/.config/kitty/
+# kitty:
+# 	cp kitty/$(_system)/* $(_out_dir)/.config/kitty/
 
 tmux:
 	mkdir -p $(_out_dir)/.tmux/plugins
@@ -65,8 +65,8 @@ tmux:
 	cp tmux/$(_system)/tmux.conf $(_out_dir)/.tmux.conf
 	@echo "Install tmux plugins by pressing prefix + I"
 
-zellij:
-	cp -r zellij $(_out_dir)/.config/
+# zellij:
+# 	cp -r zellij $(_out_dir)/.config/
 
 fastfetch:
 	mkdir -p $(_out_dir)/.config/fastfetch
@@ -84,13 +84,13 @@ nvim:
 	rm -rf $(_out_dir)/.config/nvim/*
 	cp -r nvim $(_out_dir)/.config/
 
-zed:
-	mkdir -p $(_out_dir)/.config/zed
-	cp zed/settings.json $(_out_dir)/.config/zed/settings.json
-
-vscode:
-	cp vscode/settings.json $(_out_dir)/Library/Application\ Support/Code/User/settings.json
-	cp vscode/extensions.json $(_out_dir)/.vscode/extensions/extensions.json
+# zed:
+# 	mkdir -p $(_out_dir)/.config/zed
+# 	cp zed/settings.json $(_out_dir)/.config/zed/settings.json
+#
+# vscode:
+# 	cp vscode/settings.json $(_out_dir)/Library/Application\ Support/Code/User/settings.json
+# 	cp vscode/extensions.json $(_out_dir)/.vscode/extensions/extensions.json
 
 # Git setup
 
