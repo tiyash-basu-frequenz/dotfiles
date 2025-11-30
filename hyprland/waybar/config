@@ -16,12 +16,13 @@
     "modules-right": [
         "cpu",
         "memory",
+        "backlight",
         "pulseaudio",
         "battery",
         "power-profiles-daemon",
-        "idle_inhibitor",
         "tray",
         "clock",
+        "idle_inhibitor",
         "custom/power"
     ],
 
@@ -43,17 +44,17 @@
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "interval": 1,
-        "format": "{:%Y-%m-%d %H:%M:%S}",
+        "format": "{:%Y-%m-%d %H:%M:%S} |",
     },
     "cpu": {
-        "format": "{usage}%  ",
+        "format": "{usage}%  |",
         "tooltip": true
     },
     "memory": {
-        "format": "{}%  "
+        "format": "{}%  |"
     },
     "pulseaudio": {
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{volume}% {icon} - {format_source} |",
         "format-bluetooth": "{volume}% {icon}  {format_source}",
         "format-bluetooth-muted": " {icon}  {format_source}",
         "format-muted": " {format_source}",
@@ -72,18 +73,18 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
+        "format": "{percent}% {icon} |",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "idle_inhibitor": {
-        "format": "{icon}",
+        "format": "{icon} |",
         "format-icons": {
             "activated": " ",
             "deactivated": " "
         }
     },
     "custom/power": {
-        "format" : "⏻ ",
+        "format" : "⏻",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
@@ -96,14 +97,14 @@
 		}
     },
     "power-profiles-daemon": {
-        "format": "{icon}",
+        "format": "{icon} |",
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
         "tooltip": true,
         "format-icons": {
-            "default": " ",
-            "performance": " ",
+            "default": "",
+            "performance": "",
             "balanced": " ",
-            "power-saver": " "
+            "power-saver": ""
         }
     },
 }
