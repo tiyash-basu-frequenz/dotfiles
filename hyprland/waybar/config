@@ -80,6 +80,16 @@
         },
         "on-click": "pavucontrol"
     },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",  // or use  for plug icon
+        "format-plugged": "{capacity}% 󰂄",   // when plugged but full
+        "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "states": {
+            "warning": 30,
+            "critical": 10
+        },
+    },
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
