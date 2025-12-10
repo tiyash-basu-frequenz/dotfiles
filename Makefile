@@ -36,6 +36,7 @@ nixos-clean:
 
 hypr:
 	cp -r hyprland/* $(_out_dir)/.config/
+	hyprctl reload
 
 
 # Terminal setup
