@@ -104,6 +104,7 @@ git-user:
 	git config --global commit.gpgsign true
 	git config --global commit.verbose true
 	git config --global tag.gpgsign true
+	git config --global credential.helper store
 	@echo "### COPY FROM THIS LINE ONWARDS ###"
 	gpg --armor --export $(_gpg)
 	@echo "### DO NOT COPY FROM THIS LINE ONWARDS ###"
