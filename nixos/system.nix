@@ -108,7 +108,7 @@ in
     after = [ "graphical-session.target" ];
     serviceConfig = {
       Type = "simple";
-      ExecStart = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+      ExecStart = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1";
       Restart = "on-failure";
       RestartSec = 1;
       TimeoutStopSec = 10;
@@ -175,7 +175,6 @@ in
   # System Packages
   # ----------------------------------------------------------------------------
   environment.systemPackages = with pkgs; [
-    alacritty
     chromium
     dmidecode
     gcc
@@ -184,14 +183,13 @@ in
     gnumake
     gnupg
     hwinfo
+    kdePackages.polkit-kde-agent-1
     libgcc
-    libsForQt5.polkit-kde-agent
     lshw
     nano
-    nix-index
     nvtopPackages.full # Uncomment if you are installing nixos natively in a system with NVIDIA GPU.
     podman-tui
-    python3Full
+    python3
     pkg-config
     starship
     systemd
