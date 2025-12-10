@@ -159,9 +159,35 @@ in
   services.openssh.enable = true;
 
   # ----------------------------------------------------------------------------
-  # Printing Services
+  # Printing and Scanning
   # ----------------------------------------------------------------------------
+  # Enable CUPS printing service
   services.printing.enable = true;
+
+  # Enable auto-discovery of network printers
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  # Optional: Add specific printer drivers if needed
+  services.printing.drivers = with pkgs; [
+    gutenprint        # Wide range of printer support
+    hplip             # HP printers
+    brlaser           # Brother laser printers
+    cnijfilter2       # Canon printers
+    # Add others as needed
+  ];
+
+  # Enable scanner support
+  hardware.sane = {
+    enable = true;
+    extraBackends = with pkgs; [
+      hplipWithPlugin  # HP scanners
+      sane-airscan     # Network scanners (AirScan/eSCL)
+    ];
+  };
 
   # ----------------------------------------------------------------------------
   # GPG Configuration
@@ -301,7 +327,7 @@ in
   users.users.tiyash = {
     isNormalUser = true;
     description = "Tiyash Basu";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "lp" "networkmanager" "scanners" "wheel" ];
     packages = with pkgs; [
       btop
       eza
