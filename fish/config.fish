@@ -6,7 +6,7 @@ if status is-interactive
 end
 
 # Dev container paths
-fish_add_path "$HOME/Dev/fqz/dev_containers/rust_arm64_host/scripts"
+fish_add_path "$HOME/Dev/fqz/dev_containers/rust/scripts"
 fish_add_path "$HOME/Dev/fqz/dev_containers/go/scripts"
 fish_add_path "$HOME/Dev/fqz/dev_containers/python/scripts"
 
