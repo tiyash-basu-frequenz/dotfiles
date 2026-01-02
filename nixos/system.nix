@@ -219,6 +219,7 @@ in
     pkg-config
     starship
     systemd
+    tldr
     udev
     unzip
     usbutils
