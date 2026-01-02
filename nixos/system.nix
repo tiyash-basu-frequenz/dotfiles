@@ -260,7 +260,7 @@ in
     unstable.ghostty
     unstable.neovim
 
-    # rust - add toolchain path to $PATH
+    # rust - remember to add toolchain path to $PATH
     rustup
   ];
 
