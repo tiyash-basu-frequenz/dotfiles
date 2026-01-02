@@ -226,11 +226,11 @@ in
     wl-clipboard
     yazi
 
-    # display and audio level controls
-    brightnessctl
-    pulseaudio # for pactl
+    # Virtualization packages
+    swtpm
+    virtiofsd
 
-    # Gnome packages
+    # Gnome packages for utilities
     evince
     gnome-calculator
     gnome-clocks
@@ -240,7 +240,7 @@ in
     simple-scan
 
     # Hyprland packages
-    # brightnessctl # Uncomment if you are installing nixos natively.
+    brightnessctl
     hyprcursor
     hypridle
     hyprlock
@@ -248,6 +248,7 @@ in
     hyprshot
     libnotify
     pavucontrol
+    pulseaudio # for pactl
     swaynotificationcenter
     unzip
     waybar
@@ -320,6 +321,15 @@ in
     defaultNetwork.settings.dns_enabled = true;
   };
 
+  # Virtualization with KVM/QEMU
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
+  # Enable UEFI support for VMs
+  virtualisation.libvirtd.qemu = {
+    package = pkgs.qemu_kvm;
+    swtpm.enable = true;
+  };
 
   # ----------------------------------------------------------------------------
   # User Configuration
@@ -327,7 +337,7 @@ in
   users.users.tiyash = {
     isNormalUser = true;
     description = "Tiyash Basu";
-    extraGroups = [ "lp" "networkmanager" "scanners" "wheel" ];
+    extraGroups = [ "libvirtd" "lp" "networkmanager" "scanners" "wheel" ];
     packages = with pkgs; [
       btop
       eza
